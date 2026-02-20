@@ -56,8 +56,6 @@
   after: <span class="str">"7d"</span>,
   sources: [<span class="str">"imessage"</span>, <span class="str">"slack"</span>, <span class="str">"gmail"</span>]
 });
-
-<span class="cm">// Returns unified results across all platforms</span>
 <span class="cm">// &rarr; 3 Slack threads, 2 email chains, 14 iMessages</span>
 <span class="cm">// &rarr; One person. Every platform. One API call.</span></pre>
 <pre class="code-panel" data-lang="py"><span class="cn">timeline</span> = <span class="kw">await</span> unbound.<span class="fn">conversations</span>(
@@ -65,8 +63,6 @@
     after=<span class="str">"7d"</span>,
     sources=[<span class="str">"imessage"</span>, <span class="str">"slack"</span>, <span class="str">"gmail"</span>]
 )
-
-<span class="cm"># Returns unified results across all platforms</span>
 <span class="cm"># &rarr; 3 Slack threads, 2 email chains, 14 iMessages</span>
 <span class="cm"># &rarr; One person. Every platform. One API call.</span></pre>
 <pre class="code-panel" data-lang="curl"><span class="kw">curl</span> -X POST https://api.unbound.tools/v1/conversations \
@@ -77,7 +73,6 @@
     "after": "7d",
     "sources": ["imessage", "slack", "gmail"]
   }'</span>
-
 <span class="cm"># &rarr; 3 Slack threads, 2 email chains, 14 iMessages</span></pre>
       </div>
     </div>
@@ -85,17 +80,40 @@
 
   <section class="source-ticker fade-in">
     <div class="source-ticker-inner">
-      <span class="source-name" style="--i:0">iMessage</span>
-      <span class="source-sep">&middot;</span>
-      <span class="source-name" style="--i:1">Slack</span>
-      <span class="source-sep">&middot;</span>
-      <span class="source-name" style="--i:2">Gmail</span>
-      <span class="source-sep">&middot;</span>
-      <span class="source-name" style="--i:3">WhatsApp</span>
-      <span class="source-sep">&middot;</span>
-      <span class="source-name" style="--i:4">Calendar</span>
-      <span class="source-sep">&middot;</span>
-      <span class="source-name" style="--i:5">Contacts</span>
+      <span class="source-name">iMessage</span><span class="source-sep">&middot;</span>
+      <span class="source-name">Slack</span><span class="source-sep">&middot;</span>
+      <span class="source-name">Gmail</span><span class="source-sep">&middot;</span>
+      <span class="source-name">WhatsApp</span><span class="source-sep">&middot;</span>
+      <span class="source-name">Discord</span><span class="source-sep">&middot;</span>
+      <span class="source-name">Telegram</span><span class="source-sep">&middot;</span>
+      <span class="source-name">Messenger</span><span class="source-sep">&middot;</span>
+      <span class="source-name">LinkedIn</span><span class="source-sep">&middot;</span>
+      <span class="source-name">Instagram</span><span class="source-sep">&middot;</span>
+      <span class="source-name">Phone</span><span class="source-sep">&middot;</span>
+      <span class="source-name">FaceTime</span><span class="source-sep">&middot;</span>
+      <span class="source-name">Google Calendar</span><span class="source-sep">&middot;</span>
+      <span class="source-name">Google Drive</span><span class="source-sep">&middot;</span>
+      <span class="source-name">Dropbox</span><span class="source-sep">&middot;</span>
+      <span class="source-name">Apple Notes</span><span class="source-sep">&middot;</span>
+      <span class="source-name">Notion</span><span class="source-sep">&middot;</span>
+      <span class="source-name">Obsidian</span><span class="source-sep">&middot;</span>
+      <span class="source-name">iMessage</span><span class="source-sep">&middot;</span>
+      <span class="source-name">Slack</span><span class="source-sep">&middot;</span>
+      <span class="source-name">Gmail</span><span class="source-sep">&middot;</span>
+      <span class="source-name">WhatsApp</span><span class="source-sep">&middot;</span>
+      <span class="source-name">Discord</span><span class="source-sep">&middot;</span>
+      <span class="source-name">Telegram</span><span class="source-sep">&middot;</span>
+      <span class="source-name">Messenger</span><span class="source-sep">&middot;</span>
+      <span class="source-name">LinkedIn</span><span class="source-sep">&middot;</span>
+      <span class="source-name">Instagram</span><span class="source-sep">&middot;</span>
+      <span class="source-name">Phone</span><span class="source-sep">&middot;</span>
+      <span class="source-name">FaceTime</span><span class="source-sep">&middot;</span>
+      <span class="source-name">Google Calendar</span><span class="source-sep">&middot;</span>
+      <span class="source-name">Google Drive</span><span class="source-sep">&middot;</span>
+      <span class="source-name">Dropbox</span><span class="source-sep">&middot;</span>
+      <span class="source-name">Apple Notes</span><span class="source-sep">&middot;</span>
+      <span class="source-name">Notion</span><span class="source-sep">&middot;</span>
+      <span class="source-name">Obsidian</span><span class="source-sep">&middot;</span>
     </div>
   </section>
 
@@ -104,6 +122,20 @@
   <section class="section fade-in">
     <h2>Context is the bottleneck</h2>
     <p>Your LLM is smart. But it knows nothing about your user's real life — their conversations, relationships, schedule. The alternative is 3-6 months building ingestion pipelines, normalization layers, and entity resolution. For every data source. With every API change.</p>
+    <div class="trust-row">
+      <div class="trust-item">
+        <span class="trust-label">Ridiculously Fast</span>
+        <p>Speed is a design constraint, not an optimization target. Sub-second queries across millions of records.</p>
+      </div>
+      <div class="trust-item">
+        <span class="trust-label">Cross-Platform Identity</span>
+        <p>Sarah on Slack is Sarah in Gmail. We resolve identities across every platform so your agent always knows who it's talking about.</p>
+      </div>
+      <div class="trust-item">
+        <span class="trust-label">Encryption & Privacy</span>
+        <p>Tenant isolation and enterprise-grade security. Your users' data is encrypted end-to-end and never commingled.</p>
+      </div>
+    </div>
   </section>
 
   <div id="scroll-50" class="scroll-sentinel"></div>
@@ -130,23 +162,6 @@
   </section>
 
   <div id="scroll-75" class="scroll-sentinel"></div>
-
-  <section class="section fade-in">
-    <div class="trust-row">
-      <div class="trust-item">
-        <span class="trust-label">Ridiculously Fast</span>
-        <p>Speed is a design constraint, not an optimization target. Sub-second queries across millions of records.</p>
-      </div>
-      <div class="trust-item">
-        <span class="trust-label">Cross-Platform Identity</span>
-        <p>Sarah on Slack is Sarah in Gmail. We resolve identities across every platform so your agent always knows who it's talking about.</p>
-      </div>
-      <div class="trust-item">
-        <span class="trust-label">Encryption & Privacy</span>
-        <p>Tenant isolation and enterprise-grade security. Your users' data is encrypted end-to-end and never commingled.</p>
-      </div>
-    </div>
-  </section>
 
   <section class="signup" id="signup">
     <h2 class="fade-in">Join the waitlist</h2>

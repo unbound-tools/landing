@@ -308,17 +308,19 @@ body {
 }
 
 .code-block {
-  background: var(--code-bg);
+  background: rgba(26, 26, 46, 0.7);
   border: 1px solid var(--border);
   border-radius: 16px;
-  padding: 2rem;
+  padding: 1.25rem 1.5rem;
   overflow-x: auto;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
 }
 
 .code-block pre {
   font-family: var(--font-mono);
   font-size: 0.9375rem;
-  line-height: 1.75;
+  line-height: 1.5;
   color: var(--text);
   margin: 0;
 }
@@ -336,11 +338,12 @@ body {
 .code-tabs {
   display: flex;
   gap: 0;
-  padding-left: 0.5rem;
+  position: relative;
+  z-index: 1;
 }
 
 .code-tab {
-  padding: 0.625rem 1.25rem;
+  padding: 0.5rem 1.25rem;
   font-family: var(--font-mono);
   font-size: 0.8125rem;
   color: var(--text-muted);
@@ -351,6 +354,7 @@ body {
   cursor: pointer;
   transition: color 0.15s ease-out, background 0.15s ease-out;
   letter-spacing: 0.01em;
+  margin-bottom: -1px;
 }
 
 .code-tab:hover {
@@ -359,7 +363,7 @@ body {
 
 .code-tab.active {
   color: var(--text);
-  background: var(--code-bg);
+  background: rgba(26, 26, 46, 0.7);
   border-color: var(--border);
 }
 
@@ -375,21 +379,22 @@ body {
   display: block;
 }
 
-/* --- Source Ticker --- */
+/* --- Source Ticker (Marquee) --- */
 
 .source-ticker {
-  padding: 0 1.5rem 40px;
-  text-align: center;
+  padding: 0 0 40px;
+  overflow: hidden;
+  mask-image: linear-gradient(to right, transparent, black 8%, black 92%, transparent);
+  -webkit-mask-image: linear-gradient(to right, transparent, black 8%, black 92%, transparent);
 }
 
 .source-ticker-inner {
-  max-width: var(--max-width);
-  margin: 0 auto;
   display: flex;
   align-items: center;
-  justify-content: center;
   gap: 0.75rem;
-  flex-wrap: wrap;
+  white-space: nowrap;
+  width: max-content;
+  animation: tickerScroll 20s linear infinite;
 }
 
 .source-name {
@@ -397,8 +402,7 @@ body {
   font-size: 0.8125rem;
   letter-spacing: 0.02em;
   color: var(--text-muted);
-  opacity: 0.4;
-  animation: sourceGlow 9s calc(var(--i) * 1.5s) infinite;
+  opacity: 0.6;
 }
 
 .source-sep {
@@ -499,7 +503,7 @@ body {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 1.5rem;
-  margin-top: 3rem;
+  margin-top: 2.5rem;
 }
 
 .trust-item {
@@ -768,11 +772,9 @@ footer {
   80%, 96% { transform: translateY(-80%); }
 }
 
-@keyframes sourceGlow {
-  0%, 5% { opacity: 0.4; color: var(--text-muted); }
-  11% { opacity: 1; color: var(--text); }
-  16.67% { opacity: 1; color: var(--text); }
-  22%, 100% { opacity: 0.4; color: var(--text-muted); }
+@keyframes tickerScroll {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
 }
 
 /* --- Typewriter --- */
@@ -875,8 +877,11 @@ footer {
     animation: none;
   }
 
-  .source-name {
+  .source-ticker-inner {
     animation: none;
+  }
+
+  .source-name {
     opacity: 0.7;
   }
 }
