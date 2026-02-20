@@ -24,7 +24,6 @@
   // --- SVG icon paths (24x24 viewBox) ---
   var P = {
     imessage: 'M5.285 0A5.273 5.273 0 0 0 0 5.285v13.43A5.273 5.273 0 0 0 5.285 24h13.43A5.273 5.273 0 0 0 24 18.715V5.285A5.273 5.273 0 0 0 18.715 0ZM12 4.154a8.809 7.337 0 0 1 8.809 7.338A8.809 7.337 0 0 1 12 18.828a8.809 7.337 0 0 1-2.492-.303A8.656 7.337 0 0 1 5.93 19.93a9.929 7.337 0 0 0 1.54-2.155 8.809 7.337 0 0 1-4.279-6.283A8.809 7.337 0 0 1 12 4.154',
-    googlemessages: 'M12 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0zM4.911 7.089h11.456a2.197 2.197 0 0 1 2.165 2.19v5.863a2.213 2.213 0 0 1-2.177 2.178H8.04c-1.174 0-2.04-.99-2.04-2.178v-4.639L4.503 7.905c-.31-.42-.05-.816.408-.816zm3.415 2.19c-.347 0-.68.21-.68.544 0 .334.333.544.68.544h7.905c.346 0 .68-.21.68-.544 0-.334-.334-.545-.68-.545zm0 2.177c-.347 0-.68.21-.68.544 0 .334.333.544.68.544h7.905c.346 0 .68-.21.68-.544 0-.334-.334-.544-.68-.544zm-.013 2.19c-.346 0-.68.21-.68.544 0 .334.334.544.68.544h5.728c.347 0 .68-.21.68-.544 0-.334-.333-.545-.68-.545z',
     whatsapp: 'M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z',
     signal: 'M12 0q-.934 0-1.83.139l.17 1.111a11 11 0 0 1 3.32 0l.172-1.111A12 12 0 0 0 12 0M9.152.34A12 12 0 0 0 5.77 1.742l.584.961a10.8 10.8 0 0 1 3.066-1.27zm5.696 0-.268 1.094a10.8 10.8 0 0 1 3.066 1.27l.584-.962A12 12 0 0 0 14.848.34M12 2.25a9.75 9.75 0 0 0-8.539 14.459c.074.134.1.292.064.441l-1.013 4.338 4.338-1.013a.62.62 0 0 1 .441.064A9.7 9.7 0 0 0 12 21.75c5.385 0 9.75-4.365 9.75-9.75S17.385 2.25 12 2.25',
     discord: 'M20.317 4.3698a19.7913 19.7913 0 00-4.8851-1.5152.0741.0741 0 00-.0785.0371c-.211.3753-.4447.8648-.6083 1.2495-1.8447-.2762-3.68-.2762-5.4868 0-.1636-.3933-.4058-.8742-.6177-1.2495a.077.077 0 00-.0785-.037 19.7363 19.7363 0 00-4.8852 1.515.0699.0699 0 00-.0321.0277C.5334 9.0458-.319 13.5799.0992 18.0578a.0824.0824 0 00.0312.0561c2.0528 1.5076 4.0413 2.4228 5.9929 3.0294a.0777.0777 0 00.0842-.0276c.4616-.6304.8731-1.2952 1.226-1.9942a.076.076 0 00-.0416-.1057c-.6528-.2476-1.2743-.5495-1.8722-.8923a.077.077 0 01-.0076-.1277c.1258-.0943.2517-.1923.3718-.2914a.0743.0743 0 01.0776-.0105c3.9278 1.7933 8.18 1.7933 12.0614 0a.0739.0739 0 01.0785.0095c.1202.099.246.1981.3728.2924a.077.077 0 01-.0066.1276 12.2986 12.2986 0 01-1.873.8914.0766.0766 0 00-.0407.1067c.3604.698.7719 1.3628 1.225 1.9932a.076.076 0 00.0842.0286c1.961-.6067 3.9495-1.5219 6.0023-3.0294a.077.077 0 00.0313-.0552c.5004-5.177-.8382-9.6739-3.5485-13.6604a.061.061 0 00-.0312-.0286zM8.02 15.3312c-1.1825 0-2.1569-1.0857-2.1569-2.419 0-1.3332.9555-2.4189 2.157-2.4189 1.2108 0 2.1757 1.0952 2.1568 2.419 0 1.3332-.9555 2.4189-2.1569 2.4189zm7.9748 0c-1.1825 0-2.1569-1.0857-2.1569-2.419 0-1.3332.9554-2.4189 2.1569-2.4189 1.2108 0 2.1757 1.0952 2.1568 2.419 0 1.3332-.946 2.4189-2.1568 2.4189Z',
@@ -37,28 +36,32 @@
     dropbox: 'M6 1.807L0 5.629l6 3.822 6.001-3.822L6 1.807zM18 1.807l-6 3.822 6 3.822 6-3.822-6-3.822zM0 13.274l6 3.822 6.001-3.822L6 9.452l-6 3.822zM18 9.452l-6 3.822 6 3.822 6-3.822-6-3.822zM6 18.371l6.001 3.822 6-3.822-6-3.822L6 18.371z',
     notion: 'M4.459 4.208c.746.606 1.026.56 2.428.466l13.215-.793c.28 0 .047-.28-.046-.326L17.86 1.968c-.42-.326-.981-.7-2.055-.607L3.01 2.295c-.466.046-.56.28-.374.466zm.793 3.08v13.904c0 .747.373 1.027 1.214.98l14.523-.84c.841-.046.935-.56.935-1.167V6.354c0-.606-.233-.933-.748-.887l-15.177.887c-.56.047-.747.327-.747.933zm14.337.745c.093.42 0 .84-.42.888l-.7.14v10.264c-.608.327-1.168.514-1.635.514-.748 0-.935-.234-1.495-.933l-4.577-7.186v6.952L12.21 19s0 .84-1.168.84l-3.222.186c-.093-.186 0-.653.327-.746l.84-.233V9.854L7.822 9.76c-.094-.42.14-1.026.793-1.073l3.456-.233 4.764 7.279v-6.44l-1.215-.139c-.093-.514.28-.887.747-.933zM1.936 1.035l13.31-.98c1.634-.14 2.055-.047 3.082.7l4.249 2.986c.7.513.934.653.934 1.213v16.378c0 1.026-.373 1.634-1.68 1.726l-15.458.934c-.98.047-1.448-.093-1.962-.747l-3.129-4.06c-.56-.747-.793-1.306-.793-1.96V2.667c0-.839.374-1.54 1.447-1.632z',
     obsidian: 'M19.355 18.538a68.967 68.959 0 0 0 1.858-2.954.81.81 0 0 0-.062-.9c-.516-.685-1.504-2.075-2.042-3.362-.553-1.321-.636-3.375-.64-4.377a1.707 1.707 0 0 0-.358-1.05l-3.198-4.064a3.744 3.744 0 0 1-.076.543c-.106.503-.307 1.004-.536 1.5-.134.29-.29.6-.446.914l-.31.626c-.516 1.068-.997 2.227-1.132 3.59-.124 1.26.046 2.73.815 4.481.128.011.257.025.386.044a6.363 6.363 0 0 1 3.326 1.505c.916.79 1.744 1.922 2.415 3.5zM8.199 22.569c.073.012.146.02.22.02.78.024 2.095.092 3.16.29.87.16 2.593.64 4.01 1.055 1.083.316 2.198-.548 2.355-1.664.114-.814.33-1.735.725-2.58l-.01.005c-.67-1.87-1.522-3.078-2.416-3.849a5.295 5.295 0 0 0-2.778-1.257c-1.54-.216-2.952.19-3.84.45.532 2.218.368 4.829-1.425 7.531zM5.533 9.938c-.023.1-.056.197-.098.29L2.82 16.059a1.602 1.602 0 0 0 .313 1.772l4.116 4.24c2.103-3.101 1.796-6.02.836-8.3-.728-1.73-1.832-3.081-2.55-3.831zM9.32 14.01c.615-.183 1.606-.465 2.745-.534-.683-1.725-.848-3.233-.716-4.577.154-1.552.7-2.847 1.235-3.95.113-.235.223-.454.328-.664.149-.297.288-.577.419-.86.217-.47.379-.885.46-1.27.08-.38.08-.72-.014-1.043-.095-.325-.297-.675-.68-1.06a1.6 1.6 0 0 0-1.475.36l-4.95 4.452a1.602 1.602 0 0 0-.513.952l-.427 2.83c.672.59 2.328 2.316 3.335 4.711.09.21.175.43.253.653z',
-    slack: 'M5.042 15.165a2.528 2.528 0 0 1-2.52 2.523A2.528 2.528 0 0 1 0 15.165a2.527 2.527 0 0 1 2.522-2.52h2.52v2.52zm1.271 0a2.527 2.527 0 0 1 2.521-2.52 2.527 2.527 0 0 1 2.521 2.52v6.313A2.528 2.528 0 0 1 8.834 24a2.528 2.528 0 0 1-2.521-2.522v-6.313zM8.834 5.042a2.528 2.528 0 0 1-2.521-2.52A2.528 2.528 0 0 1 8.834 0a2.528 2.528 0 0 1 2.521 2.522v2.52H8.834zm0 1.271a2.528 2.528 0 0 1 2.521 2.521 2.528 2.528 0 0 1-2.521 2.521H2.522A2.528 2.528 0 0 1 0 8.834a2.528 2.528 0 0 1 2.522-2.521h6.312zm6.289 2.521a2.528 2.528 0 0 1 2.523-2.521A2.528 2.528 0 0 1 24 8.834a2.528 2.528 0 0 1-2.522 2.521h-2.522V8.834zm-1.268 0a2.528 2.528 0 0 1-2.523 2.521 2.527 2.527 0 0 1-2.52-2.521V2.522A2.527 2.527 0 0 1 11.332 0a2.528 2.528 0 0 1 2.523 2.522v6.312zm-2.523 6.331a2.528 2.528 0 0 1 2.523 2.52 2.527 2.527 0 0 1-2.523 2.523 2.527 2.527 0 0 1-2.52-2.522v-2.521h2.52zm0-1.268a2.527 2.527 0 0 1-2.52-2.523 2.526 2.526 0 0 1 2.52-2.52h6.31A2.527 2.527 0 0 1 24 11.376a2.528 2.528 0 0 1-2.523 2.523h-6.31z',
+    // Clean bold hashtag for Slack (evenodd fill-rule)
+    slack: 'M6 1.5A1.5 1.5 0 0 1 7.5 3v4h9V3a1.5 1.5 0 0 1 3 0v4H22.5a1.5 1.5 0 0 1 0 3H19.5v4h3a1.5 1.5 0 0 1 0 3H19.5v4a1.5 1.5 0 0 1-3 0v-4h-9v4a1.5 1.5 0 0 1-3 0v-4H1.5a1.5 1.5 0 0 1 0-3h3v-4h-3a1.5 1.5 0 0 1 0-3h3V3A1.5 1.5 0 0 1 6 1.5zm1.5 8.5v4h9v-4h-9z',
     linkedin: 'M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z',
-    outlook: 'M24 7.387v10.478c0 .23-.08.424-.238.576a.806.806 0 0 1-.588.236h-8.489v-6.316l1.467 1.082a.387.387 0 0 0 .46 0l7.388-5.402v-.002a.478.478 0 0 1 0 .348zM15.322 7.2h8.457c.212 0 .397.076.553.228l-7.985 5.822-1.025-.756V7.2zm-1.637 5.16L0 14.531V4.469l13.685 7.891zM13.685 3.6l-6.842 5.28L0 3.6V2.206c0-.327.122-.605.365-.833A1.2 1.2 0 0 1 1.201 1h11.681c.323 0 .602.124.834.373.232.248.352.53.352.833V3.6h-.383z',
     phone: 'M6.62 10.79c1.44 2.83 3.76 5.15 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z',
     facetime: 'M17 10.5V7c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h12c.55 0 1-.45 1-1v-3.5l4 4v-11l-4 4z',
     applenotes: 'M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-2 10H7v-2h10v2zm0-4H7V7h10v2z',
     localfiles: 'M10 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V8c0-1.1-.9-2-2-2h-8l-2-2z',
-    outlookcalendar: 'M19 3h-1V1h-2v2H8V1H6v2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H5V8h14v11zM7 10h5v5H7v-5z',
+    // L1 entity icons
     messages: 'M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2z',
     conversations: 'M21 6h-2v9H6v2c0 .55.45 1 1 1h11l4 4V7c0-.55-.45-1-1-1zm-4 6V3c0-.55-.45-1-1-1H3c-.55 0-1 .45-1 1v14l4-4h10c.55 0 1-.45 1-1z',
     events: 'M19 3h-1V1h-2v2H8V1H6v2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H5V8h14v11z',
     docs: 'M14 2H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V8l-6-6zm4 18H6V4h7v5h5v11z'
   };
 
+  // Icons needing evenodd fill-rule
+  var evenodd = { slack: true };
+
   // Preload icons as Image objects from SVG data URLs
   var icons = {};
   var loadCount = 0;
   var totalIcons = Object.keys(P).length;
 
-  function svgUrl(path, fill) {
+  function svgUrl(path, fill, eo) {
+    var fr = eo ? ' fill-rule="evenodd"' : '';
     return 'data:image/svg+xml,' + encodeURIComponent(
-      '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill="' + fill + '" d="' + path + '"/></svg>'
+      '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path' + fr + ' fill="' + fill + '" d="' + path + '"/></svg>'
     );
   }
 
@@ -66,7 +69,7 @@
     var img = new Image();
     img.onload = function () { loadCount++; if (loadCount >= totalIcons && !started) start(); };
     img.onerror = function () { loadCount++; if (loadCount >= totalIcons && !started) start(); };
-    img.src = svgUrl(P[key], fill);
+    img.src = svgUrl(P[key], fill, evenodd[key]);
     icons[key] = img;
   }
 
@@ -78,28 +81,25 @@
   ];
 
   var L2 = [
-    { label: 'iMessage',          color: '#34C759', icon: 'imessage',        parents: [0, 1] },
-    { label: 'Android Messages',  color: '#3DDC84', icon: 'googlemessages',  parents: [0, 1] },
-    { label: 'WhatsApp',          color: '#25D366', icon: 'whatsapp',        parents: [0, 1] },
-    { label: 'Signal',            color: '#3A76F0', icon: 'signal',          parents: [0, 1] },
-    { label: 'Slack',             color: '#E01E5A', icon: 'slack',           parents: [0, 1] },
-    { label: 'Discord',           color: '#5865F2', icon: 'discord',         parents: [0, 1] },
-    { label: 'Telegram',          color: '#26A5E4', icon: 'telegram',        parents: [0, 1] },
-    { label: 'Messenger',         color: '#0084FF', icon: 'messenger',       parents: [0, 1] },
-    { label: 'Gmail',             color: '#EA4335', icon: 'gmail',           parents: [0, 1, 2] },
-    { label: 'Outlook',           color: '#0078D4', icon: 'outlook',         parents: [0, 1, 2] },
-    { label: 'Phone',             color: '#30D158', icon: 'phone',           parents: [0] },
-    { label: 'FaceTime',          color: '#30D158', icon: 'facetime',        parents: [0] },
-    { label: 'LinkedIn',          color: '#0A66C2', icon: 'linkedin',        parents: [0] },
-    { label: 'Instagram',         color: '#E4405F', icon: 'instagram',       parents: [0] },
-    { label: 'Google Calendar',   color: '#4285F4', icon: 'googlecalendar',  parents: [2] },
-    { label: 'Outlook Calendar',  color: '#0078D4', icon: 'outlookcalendar', parents: [2] },
-    { label: 'Google Drive',      color: '#4285F4', icon: 'googledrive',     parents: [3] },
-    { label: 'Dropbox',           color: '#0061FF', icon: 'dropbox',         parents: [3] },
-    { label: 'Apple Notes',       color: '#FFD60A', icon: 'applenotes',      parents: [3] },
-    { label: 'Notion',            color: '#EDEDF0', icon: 'notion',          parents: [3] },
-    { label: 'Obsidian',          color: '#7C3AED', icon: 'obsidian',        parents: [3] },
-    { label: 'Local Files',       color: '#8E8E93', icon: 'localfiles',      parents: [3] }
+    { label: 'iMessage',        color: '#34C759', icon: 'imessage',        parents: [0, 1] },
+    { label: 'WhatsApp',        color: '#25D366', icon: 'whatsapp',        parents: [0, 1] },
+    { label: 'Signal',          color: '#3A76F0', icon: 'signal',          parents: [0, 1] },
+    { label: 'Slack',           color: '#E01E5A', icon: 'slack',           parents: [0, 1] },
+    { label: 'Discord',         color: '#5865F2', icon: 'discord',         parents: [0, 1] },
+    { label: 'Telegram',        color: '#26A5E4', icon: 'telegram',        parents: [0, 1] },
+    { label: 'Messenger',       color: '#0084FF', icon: 'messenger',       parents: [0, 1] },
+    { label: 'Gmail',           color: '#EA4335', icon: 'gmail',           parents: [0, 1, 2] },
+    { label: 'Phone',           color: '#30D158', icon: 'phone',           parents: [0] },
+    { label: 'FaceTime',        color: '#30D158', icon: 'facetime',        parents: [0] },
+    { label: 'LinkedIn',        color: '#0A66C2', icon: 'linkedin',        parents: [0] },
+    { label: 'Instagram',       color: '#E4405F', icon: 'instagram',       parents: [0] },
+    { label: 'Google Calendar',  color: '#4285F4', icon: 'googlecalendar', parents: [2] },
+    { label: 'Google Drive',     color: '#4285F4', icon: 'googledrive',    parents: [3] },
+    { label: 'Dropbox',         color: '#0061FF', icon: 'dropbox',         parents: [3] },
+    { label: 'Apple Notes',     color: '#FFD60A', icon: 'applenotes',      parents: [3] },
+    { label: 'Notion',          color: '#EDEDF0', icon: 'notion',          parents: [3] },
+    { label: 'Obsidian',        color: '#7C3AED', icon: 'obsidian',        parents: [3] },
+    { label: 'Local Files',     color: '#8E8E93', icon: 'localfiles',      parents: [3] }
   ];
 
   for (var key in P) preload(key, '#ffffff');
@@ -120,12 +120,25 @@
   var outerAngle = 0;
   var INNER_SPEED = 0.0008;
   var OUTER_SPEED = 0.0005;
+  var starPhase = 0;
   var started = false;
   var reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
   function drawIcon(img, x, y, size) {
     if (!img || !img.complete || !img.naturalWidth) return;
     ctx.drawImage(img, x - size / 2, y - size / 2, size, size);
+  }
+
+  // Draw a 4-point star shape
+  function drawStar(x, y, outerR, innerR, points) {
+    ctx.beginPath();
+    for (var i = 0; i < points * 2; i++) {
+      var r = i % 2 === 0 ? outerR : innerR;
+      var a = (i * Math.PI) / points - Math.PI / 2;
+      if (i === 0) ctx.moveTo(x + Math.cos(a) * r, y + Math.sin(a) * r);
+      else ctx.lineTo(x + Math.cos(a) * r, y + Math.sin(a) * r);
+    }
+    ctx.closePath();
   }
 
   function draw() {
@@ -204,39 +217,93 @@
       ctx.fillText(n.label, n.x, n.y + iconL1 / 2 + 10);
     });
 
-    // Center node: LifeDB
-    var cg = ctx.createRadialGradient(x0, y0, 0, x0, y0, 64);
-    cg.addColorStop(0, 'rgba(124, 92, 255, 0.25)');
-    cg.addColorStop(1, 'rgba(124, 92, 255, 0)');
+    // --- Center node: shining star ---
+    var pulse = 0.5 + 0.5 * Math.sin(starPhase);
+
+    // Outer soft glow (pulsing)
+    var g1 = ctx.createRadialGradient(x0, y0, 0, x0, y0, 80 + pulse * 20);
+    g1.addColorStop(0, 'rgba(124, 92, 255, ' + (0.12 + pulse * 0.08) + ')');
+    g1.addColorStop(0.5, 'rgba(124, 92, 255, ' + (0.04 + pulse * 0.03) + ')');
+    g1.addColorStop(1, 'rgba(124, 92, 255, 0)');
     ctx.beginPath();
-    ctx.arc(x0, y0, 64, 0, Math.PI * 2);
-    ctx.fillStyle = cg;
+    ctx.arc(x0, y0, 100, 0, Math.PI * 2);
+    ctx.fillStyle = g1;
     ctx.fill();
+
+    // Star rays (cross-shaped light beams)
+    ctx.save();
+    ctx.translate(x0, y0);
+    ctx.rotate(starPhase * 0.1);
+    var rayLen = 40 + pulse * 15;
+    for (var ri = 0; ri < 4; ri++) {
+      var ra = ri * Math.PI / 2;
+      var g2 = ctx.createLinearGradient(0, 0, Math.cos(ra) * rayLen, Math.sin(ra) * rayLen);
+      g2.addColorStop(0, 'rgba(200, 180, 255, ' + (0.5 + pulse * 0.3) + ')');
+      g2.addColorStop(1, 'rgba(124, 92, 255, 0)');
+      ctx.beginPath();
+      ctx.moveTo(Math.cos(ra - 0.15) * 6, Math.sin(ra - 0.15) * 6);
+      ctx.lineTo(Math.cos(ra) * rayLen, Math.sin(ra) * rayLen);
+      ctx.lineTo(Math.cos(ra + 0.15) * 6, Math.sin(ra + 0.15) * 6);
+      ctx.closePath();
+      ctx.fillStyle = g2;
+      ctx.fill();
+    }
+    // Diagonal rays (thinner)
+    for (var di = 0; di < 4; di++) {
+      var da = di * Math.PI / 2 + Math.PI / 4;
+      var dLen = 25 + pulse * 10;
+      var g3 = ctx.createLinearGradient(0, 0, Math.cos(da) * dLen, Math.sin(da) * dLen);
+      g3.addColorStop(0, 'rgba(200, 180, 255, ' + (0.3 + pulse * 0.2) + ')');
+      g3.addColorStop(1, 'rgba(124, 92, 255, 0)');
+      ctx.beginPath();
+      ctx.moveTo(Math.cos(da - 0.1) * 5, Math.sin(da - 0.1) * 5);
+      ctx.lineTo(Math.cos(da) * dLen, Math.sin(da) * dLen);
+      ctx.lineTo(Math.cos(da + 0.1) * 5, Math.sin(da + 0.1) * 5);
+      ctx.closePath();
+      ctx.fillStyle = g3;
+      ctx.fill();
+    }
+    ctx.restore();
+
+    // Inner bright core
+    var g4 = ctx.createRadialGradient(x0, y0, 0, x0, y0, 18);
+    g4.addColorStop(0, 'rgba(220, 210, 255, ' + (0.9 + pulse * 0.1) + ')');
+    g4.addColorStop(0.4, 'rgba(155, 127, 255, 0.6)');
+    g4.addColorStop(1, 'rgba(124, 92, 255, 0)');
     ctx.beginPath();
-    ctx.arc(x0, y0, 14, 0, Math.PI * 2);
-    ctx.fillStyle = '#7C5CFF';
+    ctx.arc(x0, y0, 18, 0, Math.PI * 2);
+    ctx.fillStyle = g4;
     ctx.fill();
+
+    // Bright center dot
+    ctx.beginPath();
+    ctx.arc(x0, y0, 6, 0, Math.PI * 2);
+    ctx.fillStyle = '#DDD6FF';
+    ctx.fill();
+
+    // Label
     ctx.font = 'bold 20px "Geist Mono", monospace';
     ctx.fillStyle = '#EDEDF0';
     ctx.textAlign = 'center';
     ctx.textBaseline = 'top';
-    ctx.fillText('LifeDB', x0, y0 + 22);
+    ctx.fillText('LifeDB', x0, y0 + 26);
   }
 
   function tick() {
     innerAngle += INNER_SPEED;
     outerAngle += OUTER_SPEED;
+    starPhase += 0.02;
 
     // Move center
     cx += vx;
     cy += vy;
 
-    // Bounce: keep outer ring inside viewport
+    // Bounce when L1 nodes hit viewport edge
     var dim = Math.min(W, H);
     var mob = mobile();
-    var r2 = dim * (mob ? 0.56 : 0.68);
-    // Clamp padding so there's always at least some room to move
-    var pad = Math.min(r2 + 30, Math.min(W, H) * 0.45);
+    var r1 = dim * (mob ? 0.28 : 0.34);
+    var iconL1 = mob ? 28 : 36;
+    var pad = r1 + iconL1 / 2;
 
     if (cx < pad)     { cx = pad;     vx = Math.abs(vx); }
     if (cx > W - pad) { cx = W - pad; vx = -Math.abs(vx); }
