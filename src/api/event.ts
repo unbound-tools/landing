@@ -10,7 +10,7 @@ interface EventBody {
   utm_campaign?: string;
 }
 
-const VALID_EVENTS = ['page_view', 'scroll_depth', 'cta_click', 'time_on_page'];
+const VALID_EVENTS = ['page_view', 'scroll_depth', 'cta_click', 'time_on_page', 'share_click'];
 
 export async function handleEvent(request: Request, env: Env): Promise<Response> {
   try {

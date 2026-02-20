@@ -3,82 +3,103 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Unbound — Give your AI agent a memory</title>
-  <meta name="description" content="One API for messages, emails, calendar, and contacts — across every platform. Built for AI that needs context.">
+  <title>unbound — The personal data layer for developers</title>
+  <meta name="description" content="One API for messages, emails, calendar, and contacts across every platform. Built for AI that needs to know who your user talked to and what was said.">
   <link rel="stylesheet" href="/assets/style.css">
 </head>
 <body>
 
-  <header class="hero">
-    <nav class="nav">
+  <header class="site-header">
+    <div class="header-inner">
       <a href="/" class="logo">unbound</a>
-    </nav>
-    <div class="hero-content">
-      <h1>Give your AI agent a memory</h1>
-      <p class="subheadline">One API for messages, emails, calendar, and contacts — across every platform. Built for AI that needs to know who you talked to and what was said.</p>
-      <a href="#signup" class="cta-button" data-cta="hero">Get early access</a>
+      <div class="header-actions">
+        <a href="https://github.com/unbound-tools" class="github-link" aria-label="GitHub" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
+        </a>
+        <a href="#signup" class="header-cta" data-cta="header">Join the waitlist</a>
+      </div>
     </div>
   </header>
 
-  <div id="scroll-25" class="scroll-sentinel"></div>
-
-  <section class="problem">
-    <h2>Your AI is context-starved</h2>
-    <p>Your users' conversations live in iMessage, Slack, WhatsApp, email, and a dozen other apps. Your AI agent sees none of it. So instead of shipping product features, you're burning sprints on OAuth flows, schema normalization, and data pipeline maintenance.</p>
+  <section class="hero">
+    <div class="hero-bg"></div>
+    <div class="hero-content">
+      <h1>Your AI has no memory.</h1>
+      <p class="subheadline">It doesn't know who your user talked to, what was said, or that the person on Slack and the person in their inbox are the same human.</p>
+      <a href="#signup" class="cta-button" data-cta="hero">Join the waitlist</a>
+    </div>
   </section>
 
-  <section class="solution">
-    <h2>One unified API for personal data</h2>
-    <p>Unbound connects to your users' messaging apps, email, calendar, and contacts. We normalize, deduplicate, and resolve entities across platforms — so your agent can query "all conversations with Sarah this week" and get a unified result, regardless of which app the conversation happened on.</p>
+  <section class="code-preview">
+    <div class="code-preview-inner fade-in">
+      <span class="code-label">unbound.js</span>
+      <div class="code-block">
+<pre><span class="kw">const</span> <span class="cn">timeline</span> = <span class="kw">await</span> unbound.<span class="fn">conversations</span>({
+  person: <span class="str">"sarah-chen"</span>,
+  after: <span class="str">"7d"</span>,
+  sources: [<span class="str">"imessage"</span>, <span class="str">"slack"</span>, <span class="str">"gmail"</span>]
+});
+
+<span class="cm">// Returns unified results across all platforms</span>
+<span class="cm">// &rarr; 3 Slack threads, 2 email chains, 14 iMessages</span>
+<span class="cm">// &rarr; One person. Every platform. One API call.</span></pre>
+      </div>
+    </div>
+  </section>
+
+  <div id="scroll-25" class="scroll-sentinel"></div>
+
+  <section class="section fade-in">
+    <h2>Context is the bottleneck</h2>
+    <p>Your LLM is smart. But it knows nothing about your user's real life — their conversations, relationships, schedule. The alternative is 3-6 months building ingestion pipelines, normalization layers, and entity resolution. For every data source. With every API change.</p>
   </section>
 
   <div id="scroll-50" class="scroll-sentinel"></div>
 
-  <section class="how-it-works">
-    <h2>How it works</h2>
-    <div class="steps">
-      <div class="step">
-        <div class="step-number">1</div>
+  <section class="section">
+    <h2 class="fade-in">How it works</h2>
+    <div class="cards stagger">
+      <div class="card fade-in">
+        <span class="card-label">Step 01</span>
         <h3>Connect sources</h3>
-        <p>Your users authorize their apps through managed OAuth flows. iMessage, Slack, WhatsApp, Gmail, Calendar — one integration, every platform.</p>
+        <p>Your users authorize their apps through managed OAuth flows. One integration, every platform.</p>
       </div>
-      <div class="step">
-        <div class="step-number">2</div>
+      <div class="card fade-in">
+        <span class="card-label">Step 02</span>
         <h3>Normalized automatically</h3>
-        <p>Messages, contacts, and events are unified into a single schema. Entity resolution links identities across platforms — automatically.</p>
+        <p>Messages, contacts, and events unified into a single schema. Entity resolution links identities across platforms — automatically.</p>
       </div>
-      <div class="step">
-        <div class="step-number">3</div>
+      <div class="card fade-in">
+        <span class="card-label">Step 03</span>
         <h3>Query via API</h3>
-        <p>A single API call returns cross-platform data. Feed it straight into your agent's context window. Your AI finally has memory.</p>
+        <p>One API call. Cross-platform results. Feed it straight into your agent's context window.</p>
       </div>
     </div>
   </section>
 
   <div id="scroll-75" class="scroll-sentinel"></div>
 
-  <section class="credibility">
-    <h2>Built for trust</h2>
-    <div class="trust-points">
-      <div class="trust-point">
-        <h3>Open source</h3>
+  <section class="section fade-in">
+    <div class="trust-row">
+      <div class="trust-item">
+        <span class="trust-label">Open Source</span>
         <p>Audit every line. Know exactly what happens with your users' data.</p>
       </div>
-      <div class="trust-point">
-        <h3>Self-hosted option</h3>
-        <p>Deploy in your own infrastructure when you need full control.</p>
+      <div class="trust-item">
+        <span class="trust-label">Self-Hosted</span>
+        <p>Your infrastructure, your data. We never see it.</p>
       </div>
-      <div class="trust-point">
-        <h3>Privacy-first architecture</h3>
-        <p>Tenant isolation by design. No data sharing across customers. Ever.</p>
+      <div class="trust-item">
+        <span class="trust-label">Privacy-First</span>
+        <p>Tenant isolation by design. No data sharing across customers.</p>
       </div>
     </div>
   </section>
 
   <section class="signup" id="signup">
-    <h2>Get early access</h2>
-    <p>We're building the personal data layer for AI. Join the waitlist to be first in line.</p>
-    <form id="signup-form" data-cta-text="Get early access">
+    <h2 class="fade-in">Join the waitlist</h2>
+    <p class="signup-subtext fade-in">We're building the personal data layer for AI. Be first in line.</p>
+    <form id="signup-form" data-cta-text="Join the waitlist">
       <div class="form-group">
         <label for="email">Email</label>
         <input type="email" id="email" name="email" placeholder="you@company.com" required>
@@ -98,7 +119,8 @@
           <span>Exploring for personal use</span>
         </label>
       </fieldset>
-      <button type="submit" class="cta-button" data-cta="form-submit">Get early access</button>
+      <button type="submit" class="cta-button" data-cta="form-submit">Join the waitlist</button>
+      <p class="no-spam">No spam. We'll email when access opens.</p>
     </form>
   </section>
 
@@ -110,5 +132,36 @@
 
   <script src="/assets/analytics.js"></script>
   <script src="/assets/form.js"></script>
+  <script>
+    (function () {
+      var header = document.querySelector('.site-header');
+      var headerCta = document.querySelector('.header-cta');
+      var hero = document.querySelector('.hero');
+
+      var scrollObs = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+          if (!entry.isIntersecting) {
+            header.classList.add('scrolled');
+            headerCta.classList.add('visible');
+          } else {
+            header.classList.remove('scrolled');
+            headerCta.classList.remove('visible');
+          }
+        });
+      });
+      scrollObs.observe(hero);
+
+      var fadeEls = document.querySelectorAll('.fade-in');
+      var animObs = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+            animObs.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.1 });
+      fadeEls.forEach(function (el) { animObs.observe(el); });
+    })();
+  </script>
 </body>
 </html>

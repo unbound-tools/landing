@@ -3,81 +3,102 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Unbound — Your users have 15 messaging apps. You need one API.</title>
-  <meta name="description" content="Connectors, normalization, and entity resolution — out of the box. Ship the product your users want, not the infrastructure nobody sees.">
+  <title>unbound — The personal data layer for developers</title>
+  <meta name="description" content="Connectors, normalization, and entity resolution out of the box. Stop building data plumbing, start shipping your product.">
   <link rel="stylesheet" href="/assets/style.css">
 </head>
 <body>
 
-  <header class="hero">
-    <nav class="nav">
+  <header class="site-header">
+    <div class="header-inner">
       <a href="/" class="logo">unbound</a>
-    </nav>
-    <div class="hero-content">
-      <h1>Your users have 15 messaging apps. You need one API.</h1>
-      <p class="subheadline">Connectors, normalization, and entity resolution — out of the box. Ship the product your users want, not the infrastructure nobody sees.</p>
-      <a href="#signup" class="cta-button" data-cta="hero">Join the waitlist</a>
+      <div class="header-actions">
+        <a href="https://github.com/unbound-tools" class="github-link" aria-label="GitHub" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
+        </a>
+        <a href="#signup" class="header-cta" data-cta="header">Join the waitlist</a>
+      </div>
     </div>
   </header>
 
-  <div id="scroll-25" class="scroll-sentinel"></div>
-
-  <section class="problem">
-    <h2>You wanted to build a product, not maintain data pipelines</h2>
-    <p>Your users' data lives in a dozen different apps. Every new integration means another OAuth implementation, another API that changes quarterly, another schema to normalize. You're spending engineering time on infrastructure nobody sees instead of shipping the product your users actually want.</p>
+  <section class="hero">
+    <div class="hero-bg"></div>
+    <div class="hero-content">
+      <h1>Your users have 15 messaging apps. You need one API.</h1>
+      <p class="subheadline">Stop building connectors. Start building your product.</p>
+      <a href="#signup" class="cta-button" data-cta="hero">Join the waitlist</a>
+    </div>
   </section>
 
-  <section class="solution">
-    <h2>The connectors, normalization, and entity resolution you'd rather not build</h2>
-    <p>Unbound handles the cross-platform data plumbing so you don't have to. Connect your users' messaging, email, calendar, and contacts through one API. We keep it normalized, deduplicated, and queryable — you ship features.</p>
+  <section class="code-preview">
+    <div class="code-preview-inner fade-in">
+      <span class="code-label">unbound.js</span>
+      <div class="code-block">
+<pre><span class="kw">const</span> <span class="cn">timeline</span> = <span class="kw">await</span> unbound.<span class="fn">conversations</span>({
+  person: <span class="str">"sarah-chen"</span>,
+  after: <span class="str">"7d"</span>,
+  sources: [<span class="str">"imessage"</span>, <span class="str">"slack"</span>, <span class="str">"gmail"</span>]
+});
+
+<span class="cm">// Returns unified results across all platforms</span>
+<span class="cm">// &rarr; 3 Slack threads, 2 email chains, 14 iMessages</span>
+<span class="cm">// &rarr; One person. Every platform. One API call.</span></pre>
+      </div>
+    </div>
+  </section>
+
+  <div id="scroll-25" class="scroll-sentinel"></div>
+
+  <section class="section fade-in">
+    <h2>You're building plumbing, not product</h2>
+    <p>Every platform API is different. Every one changes quarterly. OAuth flows, rate limits, schema mapping, deduplication — your team is spending months on infrastructure your users never see. And you still can't answer: "Show me all conversations with this contact."</p>
   </section>
 
   <div id="scroll-50" class="scroll-sentinel"></div>
 
-  <section class="how-it-works">
-    <h2>How it works</h2>
-    <div class="steps">
-      <div class="step">
-        <div class="step-number">1</div>
+  <section class="section">
+    <h2 class="fade-in">How it works</h2>
+    <div class="cards stagger">
+      <div class="card fade-in">
+        <span class="card-label">Step 01</span>
         <h3>Connect sources</h3>
-        <p>One integration replaces a dozen. Your users authorize their apps through managed OAuth flows — Gmail, Slack, WhatsApp, iMessage, Calendar, and more.</p>
+        <p>One integration replaces a dozen. Managed OAuth flows for Gmail, Slack, WhatsApp, iMessage, Calendar, and more.</p>
       </div>
-      <div class="step">
-        <div class="step-number">2</div>
+      <div class="card fade-in">
+        <span class="card-label">Step 02</span>
         <h3>Normalized automatically</h3>
-        <p>Cross-platform data, unified schema. Entity resolution connects identities across platforms. "Sarah on Slack" is the same Sarah in your users' email.</p>
+        <p>Cross-platform data, unified schema. Entity resolution connects identities — "Sarah on Slack" is the same Sarah in email.</p>
       </div>
-      <div class="step">
-        <div class="step-number">3</div>
+      <div class="card fade-in">
+        <span class="card-label">Step 03</span>
         <h3>Query via API</h3>
-        <p>A single, consistent API for all your users' personal data. Stop maintaining data pipelines. Start shipping features.</p>
+        <p>A single, consistent API for all your users' personal data. Stop maintaining pipelines. Start shipping features.</p>
       </div>
     </div>
   </section>
 
   <div id="scroll-75" class="scroll-sentinel"></div>
 
-  <section class="credibility">
-    <h2>Built for trust</h2>
-    <div class="trust-points">
-      <div class="trust-point">
-        <h3>Open source</h3>
+  <section class="section fade-in">
+    <div class="trust-row">
+      <div class="trust-item">
+        <span class="trust-label">Open Source</span>
         <p>Audit every line. Know exactly what happens with your users' data.</p>
       </div>
-      <div class="trust-point">
-        <h3>Self-hosted option</h3>
-        <p>Deploy in your own infrastructure when you need full control.</p>
+      <div class="trust-item">
+        <span class="trust-label">Self-Hosted</span>
+        <p>Your infrastructure, your data. We never see it.</p>
       </div>
-      <div class="trust-point">
-        <h3>Privacy-first architecture</h3>
-        <p>Tenant isolation by design. No data sharing across customers. Ever.</p>
+      <div class="trust-item">
+        <span class="trust-label">Privacy-First</span>
+        <p>Tenant isolation by design. No data sharing across customers.</p>
       </div>
     </div>
   </section>
 
   <section class="signup" id="signup">
-    <h2>Join the waitlist</h2>
-    <p>We're building the personal data infrastructure you'd rather not. Get early access when it's ready.</p>
+    <h2 class="fade-in">Join the waitlist</h2>
+    <p class="signup-subtext fade-in">We're building the infrastructure you'd rather not. Get early access when it's ready.</p>
     <form id="signup-form" data-cta-text="Join the waitlist">
       <div class="form-group">
         <label for="email">Email</label>
@@ -99,6 +120,7 @@
         </label>
       </fieldset>
       <button type="submit" class="cta-button" data-cta="form-submit">Join the waitlist</button>
+      <p class="no-spam">No spam. We'll email when access opens.</p>
     </form>
   </section>
 
@@ -110,5 +132,36 @@
 
   <script src="/assets/analytics.js"></script>
   <script src="/assets/form.js"></script>
+  <script>
+    (function () {
+      var header = document.querySelector('.site-header');
+      var headerCta = document.querySelector('.header-cta');
+      var hero = document.querySelector('.hero');
+
+      var scrollObs = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+          if (!entry.isIntersecting) {
+            header.classList.add('scrolled');
+            headerCta.classList.add('visible');
+          } else {
+            header.classList.remove('scrolled');
+            headerCta.classList.remove('visible');
+          }
+        });
+      });
+      scrollObs.observe(hero);
+
+      var fadeEls = document.querySelectorAll('.fade-in');
+      var animObs = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+            animObs.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.1 });
+      fadeEls.forEach(function (el) { animObs.observe(el); });
+    })();
+  </script>
 </body>
 </html>

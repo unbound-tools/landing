@@ -3,30 +3,25 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Thanks — Unbound</title>
+  <title>Thanks — unbound</title>
   <meta name="description" content="You're on the list.">
   <link rel="stylesheet" href="/assets/style.css">
 </head>
 <body>
 
-  <header>
-    <nav class="nav">
+  <header class="site-header scrolled">
+    <div class="header-inner">
       <a href="/" class="logo">unbound</a>
-    </nav>
+    </div>
   </header>
 
-  <main style="max-width: var(--max-width); margin: 0 auto; padding: 4rem 1.5rem;">
+  <main class="thanks-page">
     <h1>You're on the list.</h1>
-    <p style="color: var(--color-muted); font-size: 1.125rem; margin-top: 1rem;">We'll reach out when early access is ready. In the meantime — mind helping us build the right thing?</p>
+    <p>We'll reach out when early access is ready. In the meantime — mind helping us build the right thing?</p>
 
     <div class="survey-section">
       <h2>3 quick questions (all optional)</h2>
       <form id="survey-form">
-        <div class="form-group">
-          <label for="building_what">What are you building?</label>
-          <textarea id="building_what" name="building_what" placeholder="e.g., An AI assistant that needs access to users' messages and calendar"></textarea>
-        </div>
-
         <fieldset class="form-group">
           <legend>Which data sources matter most?</legend>
           <div class="checkbox-group">
@@ -89,8 +84,21 @@
           </label>
         </fieldset>
 
+        <div class="form-group">
+          <label for="building_what">What are you building?</label>
+          <textarea id="building_what" name="building_what" placeholder="e.g., An AI assistant that needs access to users' messages and calendar"></textarea>
+        </div>
+
         <button type="submit" class="cta-button">Submit</button>
       </form>
+    </div>
+
+    <div class="share-section">
+      <p>Know someone building with personal data?</p>
+      <div class="share-buttons">
+        <button id="share-copy" class="share-btn" type="button">Copy link</button>
+        <button id="share-x" class="share-btn" type="button">Share on X</button>
+      </div>
     </div>
   </main>
 
@@ -100,5 +108,6 @@
 
   <script src="/assets/analytics.js"></script>
   <script src="/assets/survey.js"></script>
+  <script src="/assets/share.js"></script>
 </body>
 </html>

@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 800" preserveAspectRatio="xMidYMid slice">
+  <defs>
+    <linearGradient id="g1" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#7C5CFF" stop-opacity="0"/>
+      <stop offset="50%" stop-color="#7C5CFF" stop-opacity="0.6"/>
+      <stop offset="100%" stop-color="#7C5CFF" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="g2" x1="100%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#9B7FFF" stop-opacity="0"/>
+      <stop offset="50%" stop-color="#9B7FFF" stop-opacity="0.4"/>
+      <stop offset="100%" stop-color="#9B7FFF" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="g3" x1="0%" y1="50%" x2="100%" y2="50%">
+      <stop offset="0%" stop-color="#00D4AA" stop-opacity="0"/>
+      <stop offset="50%" stop-color="#00D4AA" stop-opacity="0.3"/>
+      <stop offset="100%" stop-color="#00D4AA" stop-opacity="0"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="50%" cy="50%">
+      <stop offset="0%" stop-color="#7C5CFF" stop-opacity="0.08"/>
+      <stop offset="100%" stop-color="#7C5CFF" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <!-- Lines from left -->
+  <path d="M0,100 C300,100 500,350 720,400" stroke="url(#g1)" stroke-width="1" fill="none"/>
+  <path d="M0,300 C200,300 450,380 720,400" stroke="url(#g2)" stroke-width="0.75" fill="none"/>
+  <path d="M0,600 C250,580 500,420 720,400" stroke="url(#g1)" stroke-width="0.75" fill="none"/>
+  <path d="M0,750 C350,700 550,450 720,400" stroke="url(#g2)" stroke-width="0.5" fill="none"/>
+  <!-- Lines from right -->
+  <path d="M1440,50 C1150,80 900,350 720,400" stroke="url(#g2)" stroke-width="0.75" fill="none"/>
+  <path d="M1440,250 C1200,260 950,370 720,400" stroke="url(#g1)" stroke-width="1" fill="none"/>
+  <path d="M1440,550 C1200,530 950,430 720,400" stroke="url(#g2)" stroke-width="0.75" fill="none"/>
+  <path d="M1440,700 C1100,680 900,450 720,400" stroke="url(#g1)" stroke-width="0.5" fill="none"/>
+  <!-- Lines from top -->
+  <path d="M400,0 C420,150 600,300 720,400" stroke="url(#g3)" stroke-width="0.5" fill="none"/>
+  <path d="M900,0 C880,120 780,280 720,400" stroke="url(#g3)" stroke-width="0.5" fill="none"/>
+  <!-- Lines from bottom -->
+  <path d="M300,800 C400,650 600,480 720,400" stroke="url(#g3)" stroke-width="0.5" fill="none"/>
+  <path d="M1100,800 C1000,650 800,480 720,400" stroke="url(#g3)" stroke-width="0.5" fill="none"/>
+  <!-- Center glow -->
+  <circle cx="720" cy="400" r="120" fill="url(#glow)"/>
+</svg>
