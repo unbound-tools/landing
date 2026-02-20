@@ -185,7 +185,41 @@ body {
   color: var(--text-muted);
   line-height: 1.6;
   max-width: 560px;
-  margin-bottom: 2.5rem;
+  margin-bottom: 1.25rem;
+}
+
+/* --- Rotating Text --- */
+
+.rotating-line {
+  font-size: 1.125rem;
+  color: var(--text-muted);
+  margin-bottom: 2rem;
+  display: flex;
+  align-items: baseline;
+  gap: 0.4em;
+  line-height: 1.5;
+}
+
+.rotating-words {
+  display: inline-block;
+  height: 1.5em;
+  overflow: hidden;
+  vertical-align: bottom;
+  position: relative;
+}
+
+.rotating-words-inner {
+  display: flex;
+  flex-direction: column;
+  animation: rotateWords 12.5s cubic-bezier(0.23, 1, 0.32, 1) infinite;
+}
+
+.rotating-words-inner span {
+  display: block;
+  height: 1.5em;
+  line-height: 1.5;
+  color: var(--cyan);
+  font-weight: 500;
 }
 
 /* --- CTA Buttons --- */
@@ -208,6 +242,34 @@ body {
 .cta-button:hover {
   background: var(--accent-hover);
   box-shadow: 0 0 24px var(--accent-glow);
+}
+
+/* --- Hero Dual CTAs --- */
+
+.hero-ctas {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+
+.cta-ghost {
+  display: inline-block;
+  padding: 0.875rem 2rem;
+  background: transparent;
+  color: var(--text-muted);
+  font-size: 1rem;
+  font-weight: 500;
+  font-family: var(--font-sans);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  cursor: pointer;
+  text-decoration: none;
+  transition: color 0.15s ease-out, border-color 0.15s ease-out;
+}
+
+.cta-ghost:hover {
+  color: var(--text);
+  border-color: rgba(124, 92, 255, 0.4);
 }
 
 /* --- Code Preview --- */
@@ -253,6 +315,82 @@ body {
 .code-block .fn { color: #60A5FA; }
 .code-block .nr { color: #F59E0B; }
 .code-block .p { color: var(--text-muted); }
+
+/* --- Code Tabs --- */
+
+.code-tabs {
+  display: flex;
+  gap: 0;
+  padding-left: 0.5rem;
+}
+
+.code-tab {
+  padding: 0.625rem 1.25rem;
+  font-family: var(--font-mono);
+  font-size: 0.8125rem;
+  color: var(--text-muted);
+  background: transparent;
+  border: 1px solid transparent;
+  border-bottom: none;
+  border-radius: 10px 10px 0 0;
+  cursor: pointer;
+  transition: color 0.15s ease-out, background 0.15s ease-out;
+  letter-spacing: 0.01em;
+}
+
+.code-tab:hover {
+  color: var(--text);
+}
+
+.code-tab.active {
+  color: var(--text);
+  background: var(--code-bg);
+  border-color: var(--border);
+}
+
+.code-tabs + .code-block {
+  border-top-left-radius: 0;
+}
+
+.code-panel {
+  display: none;
+}
+
+.code-panel.active {
+  display: block;
+}
+
+/* --- Source Ticker --- */
+
+.source-ticker {
+  padding: 0 1.5rem 40px;
+  text-align: center;
+}
+
+.source-ticker-inner {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.source-name {
+  font-family: var(--font-mono);
+  font-size: 0.8125rem;
+  letter-spacing: 0.02em;
+  color: var(--text-muted);
+  opacity: 0.4;
+  animation: sourceGlow 9s calc(var(--i) * 1.5s) infinite;
+}
+
+.source-sep {
+  color: var(--border);
+  font-size: 0.75rem;
+  opacity: 0.5;
+}
 
 /* --- Sections --- */
 
@@ -607,6 +745,21 @@ footer {
   50% { opacity: 0; }
 }
 
+@keyframes rotateWords {
+  0%, 16% { transform: translateY(0); }
+  20%, 36% { transform: translateY(-20%); }
+  40%, 56% { transform: translateY(-40%); }
+  60%, 76% { transform: translateY(-60%); }
+  80%, 96% { transform: translateY(-80%); }
+}
+
+@keyframes sourceGlow {
+  0%, 5% { opacity: 0.4; color: var(--text-muted); }
+  11% { opacity: 1; color: var(--text); }
+  16.67% { opacity: 1; color: var(--text); }
+  22%, 100% { opacity: 0.4; color: var(--text-muted); }
+}
+
 /* --- Typewriter --- */
 
 .type-cursor {
@@ -655,6 +808,29 @@ footer {
     padding: 0 1.5rem 60px;
   }
 
+  .source-ticker {
+    padding: 0 1.5rem 30px;
+  }
+
+  .hero-ctas {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.75rem;
+  }
+
+  .rotating-line {
+    font-size: 1rem;
+  }
+
+  .code-tabs {
+    padding-left: 0.25rem;
+  }
+
+  .code-tab {
+    padding: 0.5rem 0.875rem;
+    font-size: 0.75rem;
+  }
+
   .signup {
     padding: 60px 1.5rem;
   }
@@ -678,5 +854,14 @@ footer {
 
   .type-cursor {
     animation: none;
+  }
+
+  .rotating-words-inner {
+    animation: none;
+  }
+
+  .source-name {
+    animation: none;
+    opacity: 0.7;
   }
 }

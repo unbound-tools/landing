@@ -26,15 +26,32 @@
     <div class="hero-content">
       <h1>Your AI has no memory.</h1>
       <p class="subheadline">It doesn't know who your user talked to, what was said, or that the person on Slack and the person in their inbox are the same human.</p>
-      <a href="#signup" class="cta-button" data-cta="hero">Join the waitlist</a>
+      <div class="rotating-line">
+        <span>Give your AI access to</span>
+        <span class="rotating-words"><span class="rotating-words-inner">
+          <span>messages</span>
+          <span>emails</span>
+          <span>calendar</span>
+          <span>contacts</span>
+          <span>calls</span>
+        </span></span>
+      </div>
+      <div class="hero-ctas">
+        <a href="#signup" class="cta-button" data-cta="hero">Join the waitlist</a>
+        <a href="https://github.com/unbound-tools" class="cta-ghost" target="_blank" rel="noopener" data-cta="github">Explore on GitHub &rarr;</a>
+      </div>
     </div>
   </section>
 
   <section class="code-preview">
     <div class="code-preview-inner fade-in">
-      <span class="code-label">unbound.js</span>
+      <div class="code-tabs">
+        <button class="code-tab active" data-lang="js">TypeScript</button>
+        <button class="code-tab" data-lang="py">Python</button>
+        <button class="code-tab" data-lang="curl">cURL</button>
+      </div>
       <div class="code-block">
-<pre><span class="kw">const</span> <span class="cn">timeline</span> = <span class="kw">await</span> unbound.<span class="fn">conversations</span>({
+<pre class="code-panel active" data-lang="js"><span class="kw">const</span> <span class="cn">timeline</span> = <span class="kw">await</span> unbound.<span class="fn">conversations</span>({
   person: <span class="str">"sarah-chen"</span>,
   after: <span class="str">"7d"</span>,
   sources: [<span class="str">"imessage"</span>, <span class="str">"slack"</span>, <span class="str">"gmail"</span>]
@@ -43,7 +60,42 @@
 <span class="cm">// Returns unified results across all platforms</span>
 <span class="cm">// &rarr; 3 Slack threads, 2 email chains, 14 iMessages</span>
 <span class="cm">// &rarr; One person. Every platform. One API call.</span></pre>
+<pre class="code-panel" data-lang="py"><span class="cn">timeline</span> = <span class="kw">await</span> unbound.<span class="fn">conversations</span>(
+    person=<span class="str">"sarah-chen"</span>,
+    after=<span class="str">"7d"</span>,
+    sources=[<span class="str">"imessage"</span>, <span class="str">"slack"</span>, <span class="str">"gmail"</span>]
+)
+
+<span class="cm"># Returns unified results across all platforms</span>
+<span class="cm"># &rarr; 3 Slack threads, 2 email chains, 14 iMessages</span>
+<span class="cm"># &rarr; One person. Every platform. One API call.</span></pre>
+<pre class="code-panel" data-lang="curl"><span class="kw">curl</span> -X POST https://api.unbound.tools/v1/conversations \
+  -H <span class="str">"Authorization: Bearer $UNBOUND_KEY"</span> \
+  -H <span class="str">"Content-Type: application/json"</span> \
+  -d <span class="str">'{
+    "person": "sarah-chen",
+    "after": "7d",
+    "sources": ["imessage", "slack", "gmail"]
+  }'</span>
+
+<span class="cm"># &rarr; 3 Slack threads, 2 email chains, 14 iMessages</span></pre>
       </div>
+    </div>
+  </section>
+
+  <section class="source-ticker fade-in">
+    <div class="source-ticker-inner">
+      <span class="source-name" style="--i:0">iMessage</span>
+      <span class="source-sep">&middot;</span>
+      <span class="source-name" style="--i:1">Slack</span>
+      <span class="source-sep">&middot;</span>
+      <span class="source-name" style="--i:2">Gmail</span>
+      <span class="source-sep">&middot;</span>
+      <span class="source-name" style="--i:3">WhatsApp</span>
+      <span class="source-sep">&middot;</span>
+      <span class="source-name" style="--i:4">Calendar</span>
+      <span class="source-sep">&middot;</span>
+      <span class="source-name" style="--i:5">Contacts</span>
     </div>
   </section>
 
@@ -133,6 +185,7 @@
   <script src="/assets/analytics.js"></script>
   <script src="/assets/form.js"></script>
   <script src="/assets/typewriter.js"></script>
+  <script src="/assets/code-tabs.js"></script>
   <script>
     (function () {
       var header = document.querySelector('.site-header');
