@@ -3,6 +3,7 @@ CREATE TABLE IF NOT EXISTS assignments (
     id TEXT PRIMARY KEY,
     variant TEXT NOT NULL,
     source TEXT,
+    ip TEXT,
     utm_source TEXT,
     utm_campaign TEXT,
     referrer TEXT,

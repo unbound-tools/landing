@@ -19,15 +19,15 @@ FROM events
 WHERE event_type = 'time_on_page'
 GROUP BY variant;
 
--- Traffic source breakdown
+-- Traffic source breakdown (unique visitors by IP)
 SELECT
     variant,
     COALESCE(utm_source, 'direct') AS source,
     COALESCE(utm_campaign, '(none)') AS campaign,
-    COUNT(*) AS visitors
+    COUNT(DISTINCT ip) AS unique_visitors
 FROM assignments
 GROUP BY variant, utm_source, utm_campaign
-ORDER BY variant, visitors DESC;
+ORDER BY variant, unique_visitors DESC;
 
 -- CTA click distribution
 SELECT

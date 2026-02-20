@@ -42,12 +42,13 @@ export async function handleRouting(
   if (isNewVisitor) {
     try {
       await env.DB.prepare(
-        `INSERT OR IGNORE INTO assignments (id, variant, source, utm_source, utm_campaign, referrer, created_at)
-         VALUES (?, ?, ?, ?, ?, ?, ?)`
+        `INSERT OR IGNORE INTO assignments (id, variant, source, ip, utm_source, utm_campaign, referrer, created_at)
+         VALUES (?, ?, ?, ?, ?, ?, ?, ?)`
       ).bind(
         visitorId,
         variant,
         source,
+        request.headers.get('CF-Connecting-IP'),
         url.searchParams.get('utm_source'),
         url.searchParams.get('utm_campaign'),
         request.headers.get('Referer'),

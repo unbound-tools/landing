@@ -306,6 +306,10 @@
     if (cy < pad)     { cy = pad;     vy = Math.abs(vy); }
     if (cy > H - pad) { cy = H - pad; vy = -Math.abs(vy); }
 
+    // Fade graph as user scrolls past hero
+    var scrollFade = Math.max(0.5, 1 - 0.5 * window.scrollY / H);
+    canvas.style.opacity = scrollFade;
+
     draw();
     requestAnimationFrame(tick);
   }
