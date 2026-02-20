@@ -1,34 +1,27 @@
 (function () {
-  var hero = document.querySelector('.hero');
-  if (!hero) return;
+  if (!document.querySelector('.hero')) return;
 
   var canvas = document.createElement('canvas');
   canvas.className = 'graph-canvas';
-  hero.insertBefore(canvas, hero.firstChild);
+  document.body.appendChild(canvas);
   var ctx = canvas.getContext('2d');
 
   var dpr = window.devicePixelRatio || 1;
   var W, H;
 
   function resize() {
-    var r = hero.getBoundingClientRect();
-    W = r.width;
-    H = r.height;
+    W = window.innerWidth;
+    H = window.innerHeight;
     canvas.width = W * dpr;
     canvas.height = H * dpr;
-    canvas.style.width = W + 'px';
-    canvas.style.height = H + 'px';
     ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
   }
   resize();
   window.addEventListener('resize', resize);
 
   var mobile = function () { return W < 768; };
-  function cX() { return mobile() ? W * 0.5 : W * 0.55; }
-  function cY() { return mobile() ? H * 0.78 : H * 0.5; }
 
   // --- SVG icon paths (24x24 viewBox) ---
-  // Simple Icons paths
   var P = {
     imessage: 'M5.285 0A5.273 5.273 0 0 0 0 5.285v13.43A5.273 5.273 0 0 0 5.285 24h13.43A5.273 5.273 0 0 0 24 18.715V5.285A5.273 5.273 0 0 0 18.715 0ZM12 4.154a8.809 7.337 0 0 1 8.809 7.338A8.809 7.337 0 0 1 12 18.828a8.809 7.337 0 0 1-2.492-.303A8.656 7.337 0 0 1 5.93 19.93a9.929 7.337 0 0 0 1.54-2.155 8.809 7.337 0 0 1-4.279-6.283A8.809 7.337 0 0 1 12 4.154',
     googlemessages: 'M12 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0zM4.911 7.089h11.456a2.197 2.197 0 0 1 2.165 2.19v5.863a2.213 2.213 0 0 1-2.177 2.178H8.04c-1.174 0-2.04-.99-2.04-2.178v-4.639L4.503 7.905c-.31-.42-.05-.816.408-.816zm3.415 2.19c-.347 0-.68.21-.68.544 0 .334.333.544.68.544h7.905c.346 0 .68-.21.68-.544 0-.334-.334-.545-.68-.545zm0 2.177c-.347 0-.68.21-.68.544 0 .334.333.544.68.544h7.905c.346 0 .68-.21.68-.544 0-.334-.334-.544-.68-.544zm-.013 2.19c-.346 0-.68.21-.68.544 0 .334.334.544.68.544h5.728c.347 0 .68-.21.68-.544 0-.334-.333-.545-.68-.545z',
@@ -44,17 +37,14 @@
     dropbox: 'M6 1.807L0 5.629l6 3.822 6.001-3.822L6 1.807zM18 1.807l-6 3.822 6 3.822 6-3.822-6-3.822zM0 13.274l6 3.822 6.001-3.822L6 9.452l-6 3.822zM18 9.452l-6 3.822 6 3.822 6-3.822-6-3.822zM6 18.371l6.001 3.822 6-3.822-6-3.822L6 18.371z',
     notion: 'M4.459 4.208c.746.606 1.026.56 2.428.466l13.215-.793c.28 0 .047-.28-.046-.326L17.86 1.968c-.42-.326-.981-.7-2.055-.607L3.01 2.295c-.466.046-.56.28-.374.466zm.793 3.08v13.904c0 .747.373 1.027 1.214.98l14.523-.84c.841-.046.935-.56.935-1.167V6.354c0-.606-.233-.933-.748-.887l-15.177.887c-.56.047-.747.327-.747.933zm14.337.745c.093.42 0 .84-.42.888l-.7.14v10.264c-.608.327-1.168.514-1.635.514-.748 0-.935-.234-1.495-.933l-4.577-7.186v6.952L12.21 19s0 .84-1.168.84l-3.222.186c-.093-.186 0-.653.327-.746l.84-.233V9.854L7.822 9.76c-.094-.42.14-1.026.793-1.073l3.456-.233 4.764 7.279v-6.44l-1.215-.139c-.093-.514.28-.887.747-.933zM1.936 1.035l13.31-.98c1.634-.14 2.055-.047 3.082.7l4.249 2.986c.7.513.934.653.934 1.213v16.378c0 1.026-.373 1.634-1.68 1.726l-15.458.934c-.98.047-1.448-.093-1.962-.747l-3.129-4.06c-.56-.747-.793-1.306-.793-1.96V2.667c0-.839.374-1.54 1.447-1.632z',
     obsidian: 'M19.355 18.538a68.967 68.959 0 0 0 1.858-2.954.81.81 0 0 0-.062-.9c-.516-.685-1.504-2.075-2.042-3.362-.553-1.321-.636-3.375-.64-4.377a1.707 1.707 0 0 0-.358-1.05l-3.198-4.064a3.744 3.744 0 0 1-.076.543c-.106.503-.307 1.004-.536 1.5-.134.29-.29.6-.446.914l-.31.626c-.516 1.068-.997 2.227-1.132 3.59-.124 1.26.046 2.73.815 4.481.128.011.257.025.386.044a6.363 6.363 0 0 1 3.326 1.505c.916.79 1.744 1.922 2.415 3.5zM8.199 22.569c.073.012.146.02.22.02.78.024 2.095.092 3.16.29.87.16 2.593.64 4.01 1.055 1.083.316 2.198-.548 2.355-1.664.114-.814.33-1.735.725-2.58l-.01.005c-.67-1.87-1.522-3.078-2.416-3.849a5.295 5.295 0 0 0-2.778-1.257c-1.54-.216-2.952.19-3.84.45.532 2.218.368 4.829-1.425 7.531zM5.533 9.938c-.023.1-.056.197-.098.29L2.82 16.059a1.602 1.602 0 0 0 .313 1.772l4.116 4.24c2.103-3.101 1.796-6.02.836-8.3-.728-1.73-1.832-3.081-2.55-3.831zM9.32 14.01c.615-.183 1.606-.465 2.745-.534-.683-1.725-.848-3.233-.716-4.577.154-1.552.7-2.847 1.235-3.95.113-.235.223-.454.328-.664.149-.297.288-.577.419-.86.217-.47.379-.885.46-1.27.08-.38.08-.72-.014-1.043-.095-.325-.297-.675-.68-1.06a1.6 1.6 0 0 0-1.475.36l-4.95 4.452a1.602 1.602 0 0 0-.513.952l-.427 2.83c.672.59 2.328 2.316 3.335 4.711.09.21.175.43.253.653z',
-    // Hand-drawn paths (24x24 viewBox)
     slack: 'M5.042 15.165a2.528 2.528 0 0 1-2.52 2.523A2.528 2.528 0 0 1 0 15.165a2.527 2.527 0 0 1 2.522-2.52h2.52v2.52zm1.271 0a2.527 2.527 0 0 1 2.521-2.52 2.527 2.527 0 0 1 2.521 2.52v6.313A2.528 2.528 0 0 1 8.834 24a2.528 2.528 0 0 1-2.521-2.522v-6.313zM8.834 5.042a2.528 2.528 0 0 1-2.521-2.52A2.528 2.528 0 0 1 8.834 0a2.528 2.528 0 0 1 2.521 2.522v2.52H8.834zm0 1.271a2.528 2.528 0 0 1 2.521 2.521 2.528 2.528 0 0 1-2.521 2.521H2.522A2.528 2.528 0 0 1 0 8.834a2.528 2.528 0 0 1 2.522-2.521h6.312zm6.289 2.521a2.528 2.528 0 0 1 2.523-2.521A2.528 2.528 0 0 1 24 8.834a2.528 2.528 0 0 1-2.522 2.521h-2.522V8.834zm-1.268 0a2.528 2.528 0 0 1-2.523 2.521 2.527 2.527 0 0 1-2.52-2.521V2.522A2.527 2.527 0 0 1 11.332 0a2.528 2.528 0 0 1 2.523 2.522v6.312zm-2.523 6.331a2.528 2.528 0 0 1 2.523 2.52 2.527 2.527 0 0 1-2.523 2.523 2.527 2.527 0 0 1-2.52-2.522v-2.521h2.52zm0-1.268a2.527 2.527 0 0 1-2.52-2.523 2.526 2.526 0 0 1 2.52-2.52h6.31A2.527 2.527 0 0 1 24 11.376a2.528 2.528 0 0 1-2.523 2.523h-6.31z',
     linkedin: 'M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z',
     outlook: 'M24 7.387v10.478c0 .23-.08.424-.238.576a.806.806 0 0 1-.588.236h-8.489v-6.316l1.467 1.082a.387.387 0 0 0 .46 0l7.388-5.402v-.002a.478.478 0 0 1 0 .348zM15.322 7.2h8.457c.212 0 .397.076.553.228l-7.985 5.822-1.025-.756V7.2zm-1.637 5.16L0 14.531V4.469l13.685 7.891zM13.685 3.6l-6.842 5.28L0 3.6V2.206c0-.327.122-.605.365-.833A1.2 1.2 0 0 1 1.201 1h11.681c.323 0 .602.124.834.373.232.248.352.53.352.833V3.6h-.383z',
-    // Simple geometric icons for missing brands
     phone: 'M6.62 10.79c1.44 2.83 3.76 5.15 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z',
     facetime: 'M17 10.5V7c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h12c.55 0 1-.45 1-1v-3.5l4 4v-11l-4 4z',
     applenotes: 'M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-2 10H7v-2h10v2zm0-4H7V7h10v2z',
     localfiles: 'M10 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V8c0-1.1-.9-2-2-2h-8l-2-2z',
     outlookcalendar: 'M19 3h-1V1h-2v2H8V1H6v2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H5V8h14v11zM7 10h5v5H7v-5z',
-    // L1 entity icons
     messages: 'M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2z',
     conversations: 'M21 6h-2v9H6v2c0 .55.45 1 1 1h11l4 4V7c0-.55-.45-1-1-1zm-4 6V3c0-.55-.45-1-1-1H3c-.55 0-1 .45-1 1v14l4-4h10c.55 0 1-.45 1-1z',
     events: 'M19 3h-1V1h-2v2H8V1H6v2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H5V8h14v11z',
@@ -80,7 +70,6 @@
     icons[key] = img;
   }
 
-  // Map node keys to icon keys
   var L1 = [
     { label: 'Messages',      color: '#7C5CFF', icon: 'messages' },
     { label: 'Conversations', color: '#00D4AA', icon: 'conversations' },
@@ -113,8 +102,19 @@
     { label: 'Local Files',       color: '#8E8E93', icon: 'localfiles',      parents: [3] }
   ];
 
-  // Preload all icons as white SVGs
   for (var key in P) preload(key, '#ffffff');
+
+  // Bounce state
+  var cx, cy, vx, vy;
+  var SPEED = 0.5;
+
+  function initBounce() {
+    cx = W * 0.5;
+    cy = H * 0.4;
+    var a = Math.PI * 0.23;
+    vx = SPEED * Math.cos(a);
+    vy = SPEED * Math.sin(a);
+  }
 
   var innerAngle = 0;
   var outerAngle = 0;
@@ -130,13 +130,15 @@
 
   function draw() {
     ctx.clearRect(0, 0, W, H);
-    var x0 = cX(), y0 = cY();
+    var x0 = cx, y0 = cy;
     var dim = Math.min(W, H);
     var mob = mobile();
-    var r1 = dim * (mob ? 0.14 : 0.17);
-    var r2 = dim * (mob ? 0.28 : 0.34);
-    var iconL1 = mob ? 14 : 18;
-    var iconL2 = mob ? 10 : 14;
+
+    // 2x sizes
+    var r1 = dim * (mob ? 0.28 : 0.34);
+    var r2 = dim * (mob ? 0.56 : 0.68);
+    var iconL1 = mob ? 28 : 36;
+    var iconL2 = mob ? 20 : 28;
 
     // Compute L1 positions
     var l1p = L1.map(function (n, i) {
@@ -155,8 +157,8 @@
       ctx.beginPath();
       ctx.moveTo(x0, y0);
       ctx.lineTo(n.x, n.y);
-      ctx.strokeStyle = 'rgba(124, 92, 255, 0.18)';
-      ctx.lineWidth = 1.5;
+      ctx.strokeStyle = 'rgba(124, 92, 255, 0.2)';
+      ctx.lineWidth = 2;
       ctx.stroke();
     });
 
@@ -167,74 +169,88 @@
         ctx.beginPath();
         ctx.moveTo(p.x, p.y);
         ctx.lineTo(n.x, n.y);
-        ctx.strokeStyle = 'rgba(124, 92, 255, 0.06)';
-        ctx.lineWidth = 0.5;
+        ctx.strokeStyle = 'rgba(124, 92, 255, 0.15)';
+        ctx.lineWidth = 1;
         ctx.stroke();
       });
     });
 
     // L2 nodes (outer ring)
     l2p.forEach(function (n) {
-      // glow
-      var g = ctx.createRadialGradient(n.x, n.y, 0, n.x, n.y, iconL2 + 4);
+      var g = ctx.createRadialGradient(n.x, n.y, 0, n.x, n.y, iconL2 + 8);
       g.addColorStop(0, n.color + '25');
       g.addColorStop(1, n.color + '00');
       ctx.beginPath();
-      ctx.arc(n.x, n.y, iconL2 + 4, 0, Math.PI * 2);
+      ctx.arc(n.x, n.y, iconL2 + 8, 0, Math.PI * 2);
       ctx.fillStyle = g;
       ctx.fill();
-      // icon
       drawIcon(icons[n.icon], n.x, n.y, iconL2);
     });
 
     // L1 nodes (inner ring)
     l1p.forEach(function (n) {
-      // glow
-      var g = ctx.createRadialGradient(n.x, n.y, 0, n.x, n.y, iconL1 + 8);
+      var g = ctx.createRadialGradient(n.x, n.y, 0, n.x, n.y, iconL1 + 16);
       g.addColorStop(0, n.color + '40');
       g.addColorStop(1, n.color + '00');
       ctx.beginPath();
-      ctx.arc(n.x, n.y, iconL1 + 8, 0, Math.PI * 2);
+      ctx.arc(n.x, n.y, iconL1 + 16, 0, Math.PI * 2);
       ctx.fillStyle = g;
       ctx.fill();
-      // icon
       drawIcon(icons[n.icon], n.x, n.y, iconL1);
-      // label
-      ctx.font = (mob ? '9' : '11') + 'px "Geist Mono", monospace';
+      ctx.font = (mob ? '14' : '16') + 'px "Geist Mono", monospace';
       ctx.fillStyle = n.color;
       ctx.textAlign = 'center';
       ctx.textBaseline = 'top';
-      ctx.fillText(n.label, n.x, n.y + iconL1 / 2 + 6);
+      ctx.fillText(n.label, n.x, n.y + iconL1 / 2 + 10);
     });
 
     // Center node: LifeDB
-    var cg = ctx.createRadialGradient(x0, y0, 0, x0, y0, 32);
+    var cg = ctx.createRadialGradient(x0, y0, 0, x0, y0, 64);
     cg.addColorStop(0, 'rgba(124, 92, 255, 0.25)');
     cg.addColorStop(1, 'rgba(124, 92, 255, 0)');
     ctx.beginPath();
-    ctx.arc(x0, y0, 32, 0, Math.PI * 2);
+    ctx.arc(x0, y0, 64, 0, Math.PI * 2);
     ctx.fillStyle = cg;
     ctx.fill();
     ctx.beginPath();
-    ctx.arc(x0, y0, 7, 0, Math.PI * 2);
+    ctx.arc(x0, y0, 14, 0, Math.PI * 2);
     ctx.fillStyle = '#7C5CFF';
     ctx.fill();
-    ctx.font = 'bold 12px "Geist Mono", monospace';
+    ctx.font = 'bold 20px "Geist Mono", monospace';
     ctx.fillStyle = '#EDEDF0';
     ctx.textAlign = 'center';
     ctx.textBaseline = 'top';
-    ctx.fillText('LifeDB', x0, y0 + 14);
+    ctx.fillText('LifeDB', x0, y0 + 22);
+  }
+
+  function tick() {
+    innerAngle += INNER_SPEED;
+    outerAngle += OUTER_SPEED;
+
+    // Move center
+    cx += vx;
+    cy += vy;
+
+    // Bounce: keep outer ring inside viewport
+    var dim = Math.min(W, H);
+    var mob = mobile();
+    var r2 = dim * (mob ? 0.56 : 0.68);
+    // Clamp padding so there's always at least some room to move
+    var pad = Math.min(r2 + 30, Math.min(W, H) * 0.45);
+
+    if (cx < pad)     { cx = pad;     vx = Math.abs(vx); }
+    if (cx > W - pad) { cx = W - pad; vx = -Math.abs(vx); }
+    if (cy < pad)     { cy = pad;     vy = Math.abs(vy); }
+    if (cy > H - pad) { cy = H - pad; vy = -Math.abs(vy); }
+
+    draw();
+    requestAnimationFrame(tick);
   }
 
   function start() {
     started = true;
+    initBounce();
     if (reducedMotion) { draw(); return; }
-    function tick() {
-      innerAngle += INNER_SPEED;
-      outerAngle += OUTER_SPEED;
-      draw();
-      requestAnimationFrame(tick);
-    }
     requestAnimationFrame(tick);
   }
 
