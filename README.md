@@ -57,28 +57,31 @@ npm run deploy
 
 ## Querying data
 
+Add `--remote` to query production D1. Without it, queries hit the local database.
+
 ```bash
 # Conversion rate by variant
-npx wrangler d1 execute landing-db --file=queries/conversion-by-variant.sql
+npx wrangler d1 execute landing-db --remote --file=queries/conversion-by-variant.sql
 
 # Survey distributions
-npx wrangler d1 execute landing-db --file=queries/survey-distributions.sql
+npx wrangler d1 execute landing-db --remote --file=queries/survey-distributions.sql
 
 # Scroll depth + time on page
-npx wrangler d1 execute landing-db --file=queries/scroll-depth.sql
+npx wrangler d1 execute landing-db --remote --file=queries/scroll-depth.sql
 ```
 
 ## Structure
 
 ```
-pages/          Static HTML, CSS, JS
-  start/        Variant A (AI Builders)
-  build/        Variant B (Product Builders)
-  thanks/       Thank-you page + optional survey
-  assets/       Shared CSS and JS
-src/            Worker source (TypeScript)
-  api/          POST endpoint handlers
-queries/        Analysis SQL (not deployed)
-schema.sql      D1 table definitions
-wrangler.toml   Worker + D1 configuration
+pages/              Static HTML, CSS, JS
+  _variants/        Variant source files (served as / , /start, /build)
+    start.html      Variant A (AI Builders)
+    build.html      Variant B (Product Builders)
+  thanks/           Thank-you page + optional survey
+  assets/           Shared CSS and JS
+src/                Worker source (TypeScript)
+  api/              POST endpoint handlers
+queries/            Analysis SQL (not deployed)
+schema.sql          D1 table definitions
+wrangler.toml       Worker + D1 configuration
 ```
