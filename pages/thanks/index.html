@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Thanks — Unbound</title>
+  <meta name="description" content="You're on the list.">
+  <link rel="stylesheet" href="/assets/style.css">
+</head>
+<body>
+
+  <header>
+    <nav class="nav">
+      <a href="/" class="logo">unbound</a>
+    </nav>
+  </header>
+
+  <main style="max-width: var(--max-width); margin: 0 auto; padding: 4rem 1.5rem;">
+    <h1>You're on the list.</h1>
+    <p style="color: var(--color-muted); font-size: 1.125rem; margin-top: 1rem;">We'll reach out when early access is ready. In the meantime — mind helping us build the right thing?</p>
+
+    <div class="survey-section">
+      <h2>3 quick questions (all optional)</h2>
+      <form id="survey-form">
+        <div class="form-group">
+          <label for="building_what">What are you building?</label>
+          <textarea id="building_what" name="building_what" placeholder="e.g., An AI assistant that needs access to users' messages and calendar"></textarea>
+        </div>
+
+        <fieldset class="form-group">
+          <legend>Which data sources matter most?</legend>
+          <div class="checkbox-group">
+            <label class="checkbox-label">
+              <input type="checkbox" name="data_sources" value="gmail">
+              <span>Gmail</span>
+            </label>
+            <label class="checkbox-label">
+              <input type="checkbox" name="data_sources" value="slack">
+              <span>Slack</span>
+            </label>
+            <label class="checkbox-label">
+              <input type="checkbox" name="data_sources" value="imessage">
+              <span>iMessage</span>
+            </label>
+            <label class="checkbox-label">
+              <input type="checkbox" name="data_sources" value="whatsapp">
+              <span>WhatsApp</span>
+            </label>
+            <label class="checkbox-label">
+              <input type="checkbox" name="data_sources" value="calendar">
+              <span>Calendar</span>
+            </label>
+            <label class="checkbox-label">
+              <input type="checkbox" name="data_sources" value="discord">
+              <span>Discord</span>
+            </label>
+            <label class="checkbox-label">
+              <input type="checkbox" name="data_sources" value="telegram">
+              <span>Telegram</span>
+            </label>
+            <label class="checkbox-label">
+              <input type="checkbox" name="data_sources" value="phone">
+              <span>Phone calls</span>
+            </label>
+            <label class="checkbox-label">
+              <input type="checkbox" name="data_sources" value="other">
+              <span>Other</span>
+            </label>
+          </div>
+        </fieldset>
+
+        <fieldset class="form-group">
+          <legend>How are you solving this today?</legend>
+          <label class="radio-label">
+            <input type="radio" name="current_solution" value="built_own">
+            <span>Built our own pipeline</span>
+          </label>
+          <label class="radio-label">
+            <input type="radio" name="current_solution" value="third_party">
+            <span>Using a third-party API (Nylas, Unipile, etc.)</span>
+          </label>
+          <label class="radio-label">
+            <input type="radio" name="current_solution" value="not_started">
+            <span>Haven't started yet</span>
+          </label>
+          <label class="radio-label">
+            <input type="radio" name="current_solution" value="not_worth">
+            <span>Decided it's not worth building</span>
+          </label>
+        </fieldset>
+
+        <button type="submit" class="cta-button">Submit</button>
+      </form>
+    </div>
+  </main>
+
+  <footer>
+    <p>&copy; 2026 Unbound Tools</p>
+  </footer>
+
+  <script src="/assets/analytics.js"></script>
+  <script src="/assets/survey.js"></script>
+</body>
+</html>
