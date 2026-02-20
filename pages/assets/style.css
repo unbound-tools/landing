@@ -10,8 +10,8 @@
 :root {
   --bg: #0A0A0F;
   --surface: #14141F;
-  --text: #EDEDF0;
-  --text-muted: #8888A0;
+  --text: #F5F5F7;
+  --text-muted: #9898B0;
   --accent: #7C5CFF;
   --accent-hover: #9B7FFF;
   --accent-glow: rgba(124, 92, 255, 0.15);
@@ -162,8 +162,6 @@ body {
   position: fixed;
   top: 0;
   left: 0;
-  width: 100vw;
-  height: 100vh;
   z-index: 0;
   pointer-events: none;
 }

@@ -14,6 +14,8 @@
     H = window.innerHeight;
     canvas.width = W * dpr;
     canvas.height = H * dpr;
+    canvas.style.width = W + 'px';
+    canvas.style.height = H + 'px';
     ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
   }
   resize();
@@ -294,20 +296,27 @@
     cx += vx;
     cy += vy;
 
-    // Bounce when L1 nodes hit viewport edge
+    // Bounce when any L1 node icon edge hits viewport edge
     var dim = Math.min(W, H);
     var mob = mobile();
     var r1 = dim * (mob ? 0.28 : 0.34);
     var iconL1 = mob ? 28 : 36;
-    var pad = r1 + iconL1 / 2;
+    var half = iconL1 / 2;
 
-    if (cx < pad)     { cx = pad;     vx = Math.abs(vx); }
-    if (cx > W - pad) { cx = W - pad; vx = -Math.abs(vx); }
-    if (cy < pad)     { cy = pad;     vy = Math.abs(vy); }
-    if (cy > H - pad) { cy = H - pad; vy = -Math.abs(vy); }
+    for (var bi = 0; bi < L1.length; bi++) {
+      var ba = innerAngle + (bi / L1.length) * Math.PI * 2 - Math.PI / 2;
+      var nx = cx + Math.cos(ba) * r1;
+      var ny = cy + Math.sin(ba) * r1;
+      if (nx - half < 0)  { cx += half - nx;         vx = Math.abs(vx); }
+      if (nx + half > W)  { cx -= nx + half - W;     vx = -Math.abs(vx); }
+      if (ny - half < 0)  { cy += half - ny;         vy = Math.abs(vy); }
+      if (ny + half > H)  { cy -= ny + half - H;     vy = -Math.abs(vy); }
+    }
 
-    // Fade graph as user scrolls past hero
-    var scrollFade = Math.max(0.5, 1 - 0.5 * window.scrollY / H);
+    // Fade graph as user scrolls past hero (faster on mobile for readability)
+    var scrollFade = mob
+      ? Math.max(0.12, 1 - 1.5 * window.scrollY / H)
+      : Math.max(0.5, 1 - 0.5 * window.scrollY / H);
     canvas.style.opacity = scrollFade;
 
     draw();
