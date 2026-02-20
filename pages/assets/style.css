@@ -139,6 +139,17 @@ body {
   overflow: hidden;
 }
 
+.hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  background:
+    radial-gradient(ellipse at 25% 40%, rgba(124, 92, 255, 0.08) 0%, transparent 60%),
+    radial-gradient(ellipse at 75% 60%, rgba(0, 212, 170, 0.05) 0%, transparent 60%);
+  animation: heroGlow 10s ease-in-out infinite alternate;
+}
+
 .hero-bg {
   position: absolute;
   inset: 0;
@@ -161,6 +172,12 @@ body {
   letter-spacing: -0.02em;
   margin-bottom: 1.5rem;
   max-width: var(--text-width);
+  background: linear-gradient(120deg, var(--text) 30%, var(--accent-hover) 50%, var(--text) 70%);
+  background-size: 200% 100%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: shimmer 6s ease-in-out infinite;
 }
 
 .hero .subheadline {
@@ -269,6 +286,8 @@ body {
 }
 
 .card {
+  position: relative;
+  overflow: hidden;
   background: var(--surface);
   border: 1px solid var(--border);
   border-radius: 16px;
@@ -276,8 +295,26 @@ body {
   transition: border-color 0.15s ease-out;
 }
 
+.card::before {
+  content: '';
+  position: absolute;
+  top: var(--mouse-y, -100px);
+  left: var(--mouse-x, -100px);
+  width: 300px;
+  height: 300px;
+  background: radial-gradient(circle, var(--accent-glow) 0%, transparent 70%);
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.3s ease-out;
+}
+
 .card:hover {
   border-color: rgba(124, 92, 255, 0.3);
+}
+
+.card:hover::before {
+  opacity: 1;
 }
 
 .card-label {
@@ -556,6 +593,32 @@ footer {
   }
 }
 
+@keyframes shimmer {
+  0%, 100% { background-position: 200% 50%; }
+  50% { background-position: 0% 50%; }
+}
+
+@keyframes heroGlow {
+  0% { opacity: 0.6; }
+  100% { opacity: 1; }
+}
+
+@keyframes cursorBlink {
+  50% { opacity: 0; }
+}
+
+/* --- Typewriter --- */
+
+.type-cursor {
+  color: var(--accent);
+  animation: cursorBlink 0.8s step-end infinite;
+  font-weight: 400;
+}
+
+.type-cursor.done {
+  display: none;
+}
+
 .stagger > .fade-in:nth-child(1) { animation-delay: 0ms; }
 .stagger > .fade-in:nth-child(2) { animation-delay: 60ms; }
 .stagger > .fade-in:nth-child(3) { animation-delay: 120ms; }
@@ -594,5 +657,26 @@ footer {
 
   .signup {
     padding: 60px 1.5rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero h1 {
+    animation: none;
+    background: none;
+    -webkit-text-fill-color: var(--text);
+  }
+
+  .hero::before {
+    animation: none;
+  }
+
+  .fade-in {
+    opacity: 1;
+    transform: none;
+  }
+
+  .type-cursor {
+    animation: none;
   }
 }
