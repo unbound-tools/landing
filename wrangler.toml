@@ -1,6 +1,12 @@
 name = "landing"
 main = "src/index.ts"
 compatibility_date = "2024-09-23"
+workers_dev = true
+
+routes = [
+  { pattern = "unbound.tools/*", zone_name = "unbound.tools" },
+  { pattern = "unbound.tools", zone_name = "unbound.tools" }
+]
 
 # Static assets served from pages/ directory
 # The ASSETS binding lets the Worker fetch assets programmatically (for A/B routing)
@@ -12,9 +18,4 @@ binding = "ASSETS"
 [[d1_databases]]
 binding = "DB"
 database_name = "landing-db"
-database_id = "placeholder-replace-after-d1-create"
-
-# Uncomment after connecting unbound.tools domain to Cloudflare:
-# [[routes]]
-# pattern = "unbound.tools/*"
-# zone_name = "unbound.tools"
+database_id = "bd9c5722-0f2e-49b9-9a8f-1d9b37ab191d"

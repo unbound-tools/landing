@@ -59,7 +59,7 @@ export async function handleRouting(
   }
 
   // Fetch the correct variant page
-  const pagePath = variant === 'A' ? '/start/index.html' : '/build/index.html';
+  const pagePath = variant === 'A' ? '/_variants/start.html' : '/_variants/build.html';
   const assetUrl = new URL(request.url);
   assetUrl.pathname = pagePath;
   const pageResponse = await env.ASSETS.fetch(assetUrl.toString());
