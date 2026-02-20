@@ -10,7 +10,7 @@
         sequence.push({ ch: node.textContent[i], cls: cls });
       }
     } else if (node.nodeType === 1) {
-      var childCls = node.className || cls;
+      var childCls = node.tagName === 'SPAN' && node.className ? node.className : cls;
       for (var j = 0; j < node.childNodes.length; j++) {
         extract(node.childNodes[j], childCls);
       }
@@ -60,7 +60,7 @@
 
     // Variable speed: pauses on newlines, faster for whitespace
     var ch = item.ch;
-    var delay = ch === '\n' ? 120 : ch === ' ' ? 20 : 32;
+    var delay = ch === '\n' ? 60 : ch === ' ' ? 10 : 16;
     setTimeout(typeNext, delay);
   }
 

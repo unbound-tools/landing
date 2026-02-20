@@ -52,15 +52,13 @@
       </div>
       <div class="code-block">
 <pre class="code-panel active" data-lang="js"><span class="kw">const</span> <span class="cn">timeline</span> = <span class="kw">await</span> unbound.<span class="fn">conversations</span>({
-  person: <span class="str">"sarah-chen"</span>,
-  after: <span class="str">"7d"</span>,
+  person: <span class="str">"sarah-chen"</span>, after: <span class="str">"7d"</span>,
   sources: [<span class="str">"imessage"</span>, <span class="str">"slack"</span>, <span class="str">"gmail"</span>]
 });
 <span class="cm">// &rarr; 3 Slack threads, 2 email chains, 14 iMessages</span>
 <span class="cm">// &rarr; One person. Every platform. One API call.</span></pre>
 <pre class="code-panel" data-lang="py"><span class="cn">timeline</span> = <span class="kw">await</span> unbound.<span class="fn">conversations</span>(
-    person=<span class="str">"sarah-chen"</span>,
-    after=<span class="str">"7d"</span>,
+    person=<span class="str">"sarah-chen"</span>, after=<span class="str">"7d"</span>,
     sources=[<span class="str">"imessage"</span>, <span class="str">"slack"</span>, <span class="str">"gmail"</span>]
 )
 <span class="cm"># &rarr; 3 Slack threads, 2 email chains, 14 iMessages</span>
@@ -68,11 +66,8 @@
 <pre class="code-panel" data-lang="curl"><span class="kw">curl</span> -X POST https://api.unbound.tools/v1/conversations \
   -H <span class="str">"Authorization: Bearer $UNBOUND_KEY"</span> \
   -H <span class="str">"Content-Type: application/json"</span> \
-  -d <span class="str">'{
-    "person": "sarah-chen",
-    "after": "7d",
-    "sources": ["imessage", "slack", "gmail"]
-  }'</span>
+  -d <span class="str">'{"person": "sarah-chen", "after": "7d",
+       "sources": ["imessage", "slack", "gmail"]}'</span>
 <span class="cm"># &rarr; 3 Slack threads, 2 email chains, 14 iMessages</span></pre>
       </div>
     </div>
