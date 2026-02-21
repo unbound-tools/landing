@@ -17,6 +17,7 @@
 5. **Adding build dependencies to the frontend** → The frontend is hand-written HTML/CSS/JS with no build step. Keep it that way. Worker-side TypeScript is the only thing that compiles.
 6. **Changing the D1 schema without a migration plan** → Schema changes affect the production database. Always ask before altering tables.
 7. **Forgetting `--remote` when querying production D1** → Without `--remote`, `wrangler d1 execute` hits the local database. Always include it for production queries.
+8. **Running `npm run deploy` manually** → Production deploys go through CI on merge to `main`. Manual deploys bypass the PR review process. Use `npm run dev` for local testing.
 
 ## Team
 
@@ -29,12 +30,17 @@ Collaborators: **@nbramia** and **@benjamcalvin**. When pushing PRs, tag the oth
 - Understanding variants → `pages/_variants/start.html` and `pages/_variants/build.html`
 - Understanding routing → `src/router.ts`
 - Understanding analytics → `pages/assets/analytics.js` and `src/api/event.ts`
+- Understanding deploys → AGENTS.md § "Deployment"
 - Experiment design & hypotheses → AGENTS.md § "A/B Experiment Design"
 - Visitor tracking & event flow → AGENTS.md § "Visitor Tracking & Analytics"
 - Database columns & types → AGENTS.md § "Database Schema"
 
 ### Key Commands
 - `npm run dev` — Local development at localhost:8787
-- `npm run deploy` — Deploy to Cloudflare
 - `npm run db:init:local` — Initialize local D1 schema
 - `npx wrangler d1 execute landing-db --file=queries/conversion-by-variant.sql` — Check conversion rates
+
+### Deploy Process
+- **Production:** Push/merge to `main` → CI deploys automatically (do not run `npm run deploy` manually)
+- **Preview:** Open a PR → CI deploys preview at `https://landing-preview.nbramia.workers.dev`
+- **Workflows:** `.github/workflows/deploy.yml` (prod), `.github/workflows/preview.yml` (preview)

@@ -26,6 +26,8 @@ Visitors to `/` are randomly assigned variant A or B via cookie. Direct visits t
 | `src/api/event.ts` | POST /api/event |
 | `schema.sql` | D1 table definitions |
 | `queries/` | Analysis SQL (not deployed, for local querying) |
+| `.github/workflows/deploy.yml` | Production deploy on push to main |
+| `.github/workflows/preview.yml` | PR preview deploy + cleanup |
 
 ### Database Tables
 
@@ -39,10 +41,30 @@ Visitors to `/` are randomly assigned variant A or B via cookie. Direct visits t
 ```bash
 npm install          # Install dependencies
 npm run dev          # Local dev at localhost:8787
-npm run deploy       # Deploy to Cloudflare
 npm run db:init      # Initialize remote D1 schema
 npm run db:init:local # Initialize local D1 schema
 ```
+
+### Deployment
+
+Production deploys are automated via GitHub Actions — **do not run `npm run deploy` manually** unless debugging a deploy issue.
+
+| Path | How it deploys | When |
+|------|---------------|------|
+| **Production** | `.github/workflows/deploy.yml` | Automatically on push to `main` |
+| **PR Preview** | `.github/workflows/preview.yml` | Automatically on PR open/update |
+| **Local dev** | `npm run dev` | Manual, localhost:8787 |
+
+**PR preview workflow:**
+1. Open a PR → preview auto-deploys to `https://landing-preview.nbramia.workers.dev`
+2. A bot comment appears on the PR with the preview URL
+3. Push more commits → preview re-deploys, comment updates
+4. Close/merge the PR → preview worker is deleted automatically
+
+**Preview environment details:**
+- Uses a separate D1 database (`landing-db-preview`) — preview data never touches production
+- Only one preview exists at a time — if multiple PRs are open, the latest push wins
+- Preview inherits the same Worker code and static assets as production
 
 ### Querying Analytics
 
@@ -118,6 +140,7 @@ These apply to all work — code, copy, and design. They bias toward caution ove
 | **Ask first** | Adding new third-party dependencies or external scripts |
 | **Ask first** | Changes to A/B routing logic |
 | **Ask first** | Changes to Cloudflare Worker configuration (wrangler.toml) |
+| **Ask first** | Changes to CI workflows (`.github/workflows/`) |
 | **Never** | Commit secrets, credentials, or API keys |
 | **Never** | Force push to main |
 | **Never** | Introduce a frontend build step or framework |
