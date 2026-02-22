@@ -19,3 +19,15 @@ binding = "ASSETS"
 binding = "DB"
 database_name = "landing-db"
 database_id = "bd9c5722-0f2e-49b9-9a8f-1d9b37ab191d"
+
+# Preview environment for PR deploys
+# Note: worker name is overridden per-PR via --name landing-preview-{PR_NUMBER} in CI
+[env.preview]
+name = "landing-preview"
+workers_dev = true
+routes = []
+
+[[env.preview.d1_databases]]
+binding = "DB"
+database_name = "landing-db-preview"
+database_id = "7d494a47-a9f3-4cbe-a247-860987dcc025"
