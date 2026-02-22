@@ -52,7 +52,7 @@ Branch → PR → Review → Preview (if visual) → Human Approval → Merge �
 1. **Branch** — Create a branch following naming conventions in `.claude/pr-standards.md`
 2. **Implement** — Make changes, commit with `<type>: <summary>` messages
 3. **PR** — Open a PR. CI auto-deploys a preview at `https://landing-preview-{PR_NUMBER}.nbramia.workers.dev`
-4. **Review** — Run `/pr-check` and `/review-pr`. Address any issues. For non-trivial PRs, request human review.
+4. **Review** — Run `/pr-check` and `/review-pr`. Address any issues. For non-trivial PRs, request human review. See `.claude/pr-standards.md` § Review for tiered review requirements.
 5. **Preview verification** — For PRs touching frontend files (`pages/`), verify the preview URL at mobile and desktop widths before requesting merge approval.
 6. **Human approval** — A human must explicitly approve the merge. Never merge without this.
 7. **Merge & deploy** — After human approval, merge to `main`. CI deploys to production automatically.
@@ -285,5 +285,5 @@ No index (low volume table).
 
 - [unbound-tools/lifedb-docs](https://github.com/unbound-tools/lifedb-docs) — Public documentation repo (linked from landing page)
 - [unbound-tools/lifedb](https://github.com/unbound-tools/lifedb) — Private product repo
-- PR workflow: `/pr-check`, `/review-pr`, `/address-review`, `/merge-pr` skills
+- PR workflow: `/pr-check`, `/review-pr`, `/address-review`, `/merge-pr` skills (see `.claude/pr-standards.md`)
 - Full implementation lifecycle: `/implement` (orchestrates plan → code → PR → review/address loop → finalize)

@@ -15,6 +15,7 @@
 - **Never merge a PR without explicit human approval.** When the user reports issues or asks for fixes, that is not merge approval. Merge only when the user explicitly says to merge.
 - For PRs touching frontend files (`pages/`), verify the preview URL at mobile and desktop widths before requesting merge approval.
 - After merging, confirm the production deploy succeeded via CI status.
+- See `.claude/pr-standards.md` § Merge Criteria for the full checklist.
 
 ## Common Mistakes
 

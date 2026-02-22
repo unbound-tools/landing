@@ -51,7 +51,7 @@ Visit `http://localhost:8787`.
 
 ### Deploy
 
-Production deploys happen automatically via CI when changes are merged to `main`. Do not deploy manually.
+Production deploys happen automatically via CI when changes are merged to `main`. Do not deploy manually. See AGENTS.md § "Development Lifecycle" for the full workflow.
 
 ## Querying data
 
