@@ -21,6 +21,7 @@ database_name = "landing-db"
 database_id = "bd9c5722-0f2e-49b9-9a8f-1d9b37ab191d"
 
 # Preview environment for PR deploys
+# Note: worker name is overridden per-PR via --name landing-preview-{PR_NUMBER} in CI
 [env.preview]
 name = "landing-preview"
 workers_dev = true
