@@ -154,9 +154,9 @@ Two variants test different framings of the same product (a unified personal dat
 
 | | Variant A — `start` (AI Builders) | Variant B — `build` (Product Builders) |
 |---|---|---|
-| **Hero** | "Your AI has no memory." | "Your users have 15 messaging apps. You need one API." |
-| **Subheadline** | Focuses on AI not knowing who users talked to | "Stop building connectors. Start building your product." |
-| **Rotating words** | "Give your AI access to" — messages, emails, calendar, contacts, calls | "One integration for" — iMessage, Slack, Gmail, WhatsApp, Calendar |
+| **Hero** | "Your users want your product to *know* them. But their data is all over the place." | "Your AI integration is running on empty." |
+| **Subheadline** | Users are fine sharing data access when they see clear benefits. Pain in the ass to close the loop — no more. | It's starved for context — users get an empty experience. Turn the lights on. |
+| **Rotating words** | "One API call for" — messages, emails, calendar, contacts, calls | "Give your AI access to" — iMessage, Slack, Gmail, WhatsApp, Calendar |
 | **Meta description** | AI that needs to know who your user talked to | Connectors, normalization, entity resolution out of the box |
 | **Target audience** | Developers building AI products that need user context | Developers building any product that touches messaging/comms |
 
