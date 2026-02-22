@@ -12,7 +12,7 @@ Orchestrate the full implementation lifecycle for: $ARGUMENTS
 
 - Current branch: !`git branch --show-current`
 - Recent commits: !`git log --oneline -5`
-- Issue (if applicable): !`gh issue view $ARGUMENTS 2>/dev/null || echo "NOT_AN_ISSUE"`
+- Issue (if applicable): !`gh issue view "$ARGUMENTS" 2>/dev/null || echo "NOT_AN_ISSUE"`
 
 ## Instructions
 
@@ -76,8 +76,8 @@ Runs up to **3 rounds**. Each round: Reviewer subagent -> Referee (you) -> Addre
 
 These steps gather everything needed to construct subagent prompts. Do them once; re-fetch the diff each round.
 
-1. **Read the review skill:** Use the Read tool on `.claude/skills/review-pr/SKILL.md`. Store the full content. Strip the YAML frontmatter block (lines between `---` markers) and strip lines that contain `` !`...` `` shell escape sequences (those inject data at skill load time — you will replace them with actual data in the prompt).
-2. **Read the address skill:** Use the Read tool on `.claude/skills/address-review/SKILL.md`. Strip frontmatter and `` !`...` `` shell escape lines the same way. Also strip Step 6 (the "Re-request Review" step) — the orchestrator controls the review loop, so re-requesting review from within the addresser subagent would trigger unwanted notifications.
+1. **Read the review skill:** Use the Read tool on `.claude/skills/review-pr/SKILL.md`. Store the full content. Strip the YAML frontmatter block (lines between `---` markers) and strip lines that contain shell escape sequences — lines starting with exclamation-mark-backtick patterns that inject data at skill load time. You will replace them with actual data in the prompt.
+2. **Read the address skill:** Use the Read tool on `.claude/skills/address-review/SKILL.md`. Strip frontmatter and shell escape lines the same way. Also strip Step 6 (the "Re-request Review" step) — the orchestrator controls the review loop, so re-requesting review from within the addresser subagent would trigger unwanted notifications.
 3. **Fetch PR data:** Run `gh pr view <number>` and `gh pr diff <number>`. Store both outputs. You will re-fetch the diff before each subsequent round since it changes after addressing.
 
 #### Step A: Spawn Reviewer Subagent
