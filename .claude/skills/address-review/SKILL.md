@@ -37,13 +37,13 @@ Read every review comment above. Categorize each piece of feedback:
 
 **Do not blindly apply suggestions.** For each piece of feedback:
 
-1. **Read the code in question** — Use Glob/Grep/Read to find the relevant file and understand the full context, not just the diff snippet.
+1. **Read the file in question** — Use Glob/Grep/Read to find the relevant file and understand the full context, not just the diff snippet.
 2. **Assess whether the feedback is correct** — Reviewers (including agent reviewers) can be wrong. Check:
    - Does the suggested change actually fix the issue identified?
-   - Could the suggestion introduce a new bug or regression?
+   - Could the suggestion introduce a new bug or visual regression?
    - Is the reviewer missing context that makes the current code correct?
-   - Does the suggestion align with project conventions (project conventions)?
-3. **For test-related feedback** — Check out the branch and run the tests yourself. Do not trust "tests pass" claims from anyone. Agents are cheap; broken merges are expensive.
+   - Does the suggestion align with project conventions in `AGENTS.md`?
+3. **For visual feedback** — Check out the branch, run `npm run dev`, verify rendering at mobile and desktop widths, check both variants (`/start` and `/build`).
 4. **For security feedback** — Take it seriously by default. Security suggestions should be applied unless you can clearly demonstrate they're wrong.
 
 ### Step 3: Respond to Each Finding
@@ -51,8 +51,8 @@ Read every review comment above. Categorize each piece of feedback:
 For each piece of feedback, take one of these actions:
 
 **Apply** — The feedback is correct. Make the change.
-- Edit the code
-- Run the full test suite to confirm the fix doesn't break anything
+- Edit the file
+- Run `npm run dev` and verify both variants render correctly
 - Note what was changed
 
 **Partially apply** — The core insight is right but the suggested fix isn't quite right.
@@ -61,7 +61,7 @@ For each piece of feedback, take one of these actions:
 
 **Reject with justification** — The feedback is incorrect or doesn't apply.
 - Explain clearly why the current code is correct
-- Reference `AGENTS.md`, `CLAUDE.md`, or project conventions to support your reasoning
+- Reference `AGENTS.md` or project conventions to support your reasoning
 - Never reject feedback without a concrete justification
 
 **Escalate** — You're unsure whether the feedback is valid.
@@ -72,9 +72,11 @@ For each piece of feedback, take one of these actions:
 
 After addressing all feedback:
 
-1. **Verify your changes** — Run `npm run dev` and confirm the page renders correctly. Check both variants if shared assets were changed. Check mobile and desktop widths for visual changes.
-2. **Spot-check your changes** — Read through your own diff. Did you introduce any new issues while fixing the review feedback?
-3. **Check sizing** — If the fixes significantly expanded the PR, flag whether it should be split.
+1. **Run `npm run dev`** and verify both variants render correctly at mobile and desktop widths
+2. **Check TypeScript compilation** — `npx wrangler types && npx tsc --noEmit` (Worker-side only)
+3. **Test form submission** if any API or form changes were made
+4. **Spot-check your changes** — Read through your own diff. Did you introduce any new issues while fixing the review feedback?
+5. **Check sizing** — If the fixes significantly expanded the PR, flag whether it should be split.
 
 ### Step 5: Commit and Push
 
@@ -101,7 +103,7 @@ Use this format for the summary:
 | 1 | <brief description> | Applied / Partially applied / Rejected | <what was done and why> |
 | 2 | ... | ... | ... |
 
-**Verification:** both variants checked, mobile/desktop confirmed
+**Visual verification:** Both variants checked at mobile + desktop
 **New commits:** <list of fix commits>
 ```
 

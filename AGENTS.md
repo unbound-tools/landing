@@ -285,4 +285,5 @@ No index (low volume table).
 
 - [unbound-tools/lifedb-docs](https://github.com/unbound-tools/lifedb-docs) — Public documentation repo (linked from landing page)
 - [unbound-tools/lifedb](https://github.com/unbound-tools/lifedb) — Private product repo
-- PR workflow: `/pr-check`, `/review-pr`, `/address-review` skills
+- PR workflow: `/pr-check`, `/review-pr`, `/address-review`, `/merge-pr` skills
+- Full implementation lifecycle: `/implement` (orchestrates plan → code → PR → review/address loop → finalize)
