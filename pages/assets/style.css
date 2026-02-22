@@ -11,7 +11,7 @@
   --bg: #0A0A0F;
   --surface: #14141F;
   --text: #F5F5F7;
-  --text-muted: #8888A0;
+  --text-muted: #9D9DB8;
   --accent: #7C5CFF;
   --accent-hover: #9B7FFF;
   --accent-glow: rgba(124, 92, 255, 0.15);
@@ -312,7 +312,7 @@ body {
 .cta-ghost {
   display: inline-block;
   padding: 0.875rem 2rem;
-  background: rgba(124, 92, 255, 0.06);
+  background: rgba(14, 14, 22, 0.85);
   color: var(--text-muted);
   font-size: 1rem;
   font-weight: 500;
@@ -328,7 +328,7 @@ body {
 .cta-ghost:hover {
   color: var(--text);
   border-color: rgba(124, 92, 255, 0.5);
-  background: rgba(124, 92, 255, 0.12);
+  background: rgba(20, 20, 35, 0.9);
   box-shadow:
     0 0 20px rgba(124, 92, 255, 0.15),
     0 2px 8px rgba(0, 0, 0, 0.2);
