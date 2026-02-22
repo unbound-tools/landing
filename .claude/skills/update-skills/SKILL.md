@@ -14,6 +14,8 @@ Detect new or changed skills in the LifeDB repository and sync them into this la
 - LifeDB agents directory: `/Users/nathanramia/Documents/Code/Unbound/LifeDB/.claude/agents/`
 - Landing skills directory: `.claude/skills/`
 
+> **Note:** The LifeDB paths above assume Nathan's local checkout. If your LifeDB repo is at a different path, substitute accordingly before running.
+
 ## Current Landing Repo Skills
 
 ```
@@ -69,10 +71,11 @@ For each skill classified as "pull in" or "merge":
 2. **Adjust specialist agents:**
    - LifeDB: Correctness, Security, Performance, Requirements, Standards
    - Landing: Correctness (Worker logic, D1 queries, routing), Security (XSS, SQL injection, cookie flags), Visual (responsive layout, both variants, accessibility), Standards (PR formatting, analytics events, variant coverage)
+   - If LifeDB adds concerns to Performance or Requirements, evaluate whether they belong in Landing's Correctness or Visual specialist rather than creating new specialists
 
-3. **Adjust escalation triggers:**
-   - LifeDB: "changes touch auth, crypto, or PII handling"
-   - Landing: "changes to A/B routing logic, D1 schema, Worker config (`wrangler.toml`), CI workflows, new third-party dependencies"
+3. **Supplement escalation triggers:**
+   - Keep LifeDB's core triggers (e.g., "changes touch auth, crypto, or PII handling") — they apply to the Worker code in this repo too
+   - Add Landing-specific triggers: "changes to A/B routing logic, D1 schema, Worker config (`wrangler.toml`), CI workflows, new third-party dependencies"
 
 4. **Adjust verification steps:**
    - LifeDB: "Run the full test suite. All tests must pass."
@@ -88,7 +91,8 @@ For each skill classified as "pull in" or "merge":
    - Independent verification before applying any suggestion should remain intact
 
 7. **Maintain frontmatter conventions:**
-   - Standalone skills use `disable-model-invocation: true`
+   - Skills invoked directly by the user (e.g., `review-pr`, `address-review`, `pr-check`) use `disable-model-invocation: true`
+   - Orchestration skills that run autonomously (e.g., `implement`, `merge-pr`) omit `disable-model-invocation` so they can be invoked programmatically
    - Fork-based subagent skills use `context: fork` and `agent: general-purpose`
    - Shell escapes use code-fenced format: `` ```\n!command\n``` ``
 
@@ -101,7 +105,7 @@ For each skill classified as "pull in" or "merge":
 
 ### Step 4: Create Branch and Commit
 
-1. Create branch: `update/sync-skills-from-lifedb`
+1. Create branch: `chore/sync-skills-from-lifedb`
 2. Stage all changed/new files under `.claude/skills/`
 3. Commit: `chore: Sync skills from LifeDB — <brief description of what changed>`
 
@@ -127,6 +131,7 @@ Skills are methodology documents — verified by reading adapted content for cor
 - Confirm escalation triggers are appropriate for this repo's architecture
 EOF
 )"
+gh pr edit <number> --add-reviewer nbramia,benjamcalvin
 ```
 
 ### Step 6: Review the PR
