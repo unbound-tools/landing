@@ -541,7 +541,7 @@ body {
 /* --- Signup Section --- */
 
 .signup {
-  padding: 80px 2rem;
+  padding: 48px 2rem 56px;
   max-width: 560px;
   margin: 0 auto;
   text-align: center;
@@ -899,7 +899,7 @@ footer {
   }
 
   .signup {
-    padding: 60px 1.5rem;
+    padding: 40px 1.25rem 48px;
   }
 }
 
