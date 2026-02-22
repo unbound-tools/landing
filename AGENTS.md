@@ -45,21 +45,19 @@ npm run db:init      # Initialize remote D1 schema
 npm run db:init:local # Initialize local D1 schema
 ```
 
-### Deployment
+### Development Lifecycle
 
-Production deploys are automated via GitHub Actions — **do not run `npm run deploy` manually** unless debugging a deploy issue.
+Branch → PR → Review → Preview (if visual) → Human Approval → Merge → Production Deploy
 
-| Path | How it deploys | When |
-|------|---------------|------|
-| **Production** | `.github/workflows/deploy.yml` | Automatically on push to `main` |
-| **PR Preview** | `.github/workflows/preview.yml` | Automatically on PR open/update |
-| **Local dev** | `npm run dev` | Manual, localhost:8787 |
+1. **Branch** — Create a branch following naming conventions in `.claude/pr-standards.md`
+2. **Implement** — Make changes, commit with `<type>: <summary>` messages
+3. **PR** — Open a PR. CI auto-deploys a preview at `https://landing-preview-{PR_NUMBER}.nbramia.workers.dev`
+4. **Review** — Run `/pr-check` and `/review-pr`. Address any issues. For non-trivial PRs, request human review. See `.claude/pr-standards.md` § Review for tiered review requirements.
+5. **Preview verification** — For PRs touching frontend files (`pages/`), verify the preview URL at mobile and desktop widths before requesting merge approval.
+6. **Human approval** — A human must explicitly approve the merge. Never merge without this.
+7. **Merge & deploy** — After human approval, merge to `main`. CI deploys to production automatically.
 
-**PR preview workflow:**
-1. Open a PR → preview auto-deploys to `https://landing-preview-{PR_NUMBER}.nbramia.workers.dev`
-2. A bot comment appears on the PR with the preview URL
-3. Push more commits → preview re-deploys, comment updates
-4. Close/merge the PR → preview worker is deleted automatically
+Preview workers are cleaned up automatically when the PR is closed/merged.
 
 **Preview environment details:**
 - Each PR gets its own isolated preview worker (`landing-preview-{PR_NUMBER}`)
@@ -145,6 +143,8 @@ These apply to all work — code, copy, and design. They bias toward caution ove
 | **Never** | Force push to main |
 | **Never** | Introduce a frontend build step or framework |
 | **Never** | Skip pre-commit hooks (`--no-verify`) |
+| **Never** | Merge a PR without explicit human approval |
+| **Always** | Verify preview URL for PRs that touch `pages/` before requesting merge |
 
 ---
 
@@ -285,5 +285,5 @@ No index (low volume table).
 
 - [unbound-tools/lifedb-docs](https://github.com/unbound-tools/lifedb-docs) — Public documentation repo (linked from landing page)
 - [unbound-tools/lifedb](https://github.com/unbound-tools/lifedb) — Private product repo
-- PR workflow: `/pr-check`, `/review-pr`, `/address-review`, `/merge-pr` skills
+- PR workflow: `/pr-check`, `/review-pr`, `/address-review`, `/merge-pr` skills (see `.claude/pr-standards.md`)
 - Full implementation lifecycle: `/implement` (orchestrates plan → code → PR → review/address loop → finalize)
