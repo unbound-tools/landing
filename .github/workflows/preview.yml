@@ -14,13 +14,16 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
+      - name: Set preview worker name
+        run: sed -i 's/name = "landing-preview"/name = "landing-preview-${{ github.event.number }}"/' wrangler.toml
+
       - name: Deploy preview
         id: deploy
         uses: cloudflare/wrangler-action@v3
         with:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
-          command: deploy --env preview --name landing-preview-${{ github.event.number }}
+          command: deploy --env preview
 
       - name: Comment preview URL
         uses: actions/github-script@v7

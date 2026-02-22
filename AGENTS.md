@@ -154,13 +154,15 @@ Two variants test different framings of the same product (a unified personal dat
 
 | | Variant A — `start` (AI Builders) | Variant B — `build` (Product Builders) |
 |---|---|---|
-| **Hero** | "Your users want your product to *know* them. But their data is all over the place." | "Your AI integration is running on empty." |
-| **Subheadline** | Users are fine sharing data access when they see clear benefits. Pain in the ass to close the loop — no more. | It's starved for context — users get an empty experience. Turn the lights on. |
-| **Rotating words** | "One API call for" — messages, emails, calendar, contacts, calls | "Give your AI access to" — iMessage, Slack, Gmail, WhatsApp, Calendar |
+| **Hero** | "Users don't want to re-teach every new app who they are." | "Your AI integration is running on empty." |
+| **Subheadline** | "But at the same time –their data is all over the place." | "It's ready to go, but it's starved for context – so your users get an empty experience. Turn the lights on." |
+| **Rotating words** | "No more. One API call for" — iMessage, WhatsApp, Slack, etc. | "Give your AI access to" — iMessage, WhatsApp, Slack, etc. |
 | **Meta description** | AI that needs to know who your user talked to | Connectors, normalization, entity resolution out of the box |
 | **Target audience** | Developers building AI products that need user context | Developers building any product that touches messaging/comms |
 
-**Shared across variants:** code preview, feature grid, trust items, graph visualization, signup form, thank-you page, all CSS and JS.
+**Shared across variants:** code preview, graph visualization, signup form, thank-you page, all CSS and JS.
+
+**Diverges between variants:** trust items (A: "Dead simple to implement" / "Encryption & Privacy"; B: "Cross-Platform Normalization" / "Breathe Easy"), "how it works" cards (different step titles and descriptions), section heading above trust items, signup subtext.
 
 ### Metrics
 

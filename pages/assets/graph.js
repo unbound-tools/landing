@@ -282,7 +282,7 @@
     ctx.fillStyle = '#EDEDF0';
     ctx.textAlign = 'center';
     ctx.textBaseline = 'top';
-    ctx.fillText('unbound', x0, y0 + 26);
+    ctx.fillText('Unbound', x0, y0 + 26);
   }
 
   function tick() {
@@ -307,7 +307,7 @@
     if (cy > H - pad) { cy = H - pad; vy = -Math.abs(vy); }
 
     // Fade graph as user scrolls past hero
-    var scrollFade = Math.max(0.5, 1 - 0.5 * window.scrollY / H);
+    var scrollFade = Math.max(0.08, 1 - 1.5 * window.scrollY / H);
     canvas.style.opacity = scrollFade;
 
     draw();
