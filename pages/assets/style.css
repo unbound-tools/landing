@@ -226,7 +226,7 @@ body {
 .rotating-words-inner {
   display: flex;
   flex-direction: column;
-  animation: rotateWords 12.5s cubic-bezier(0.23, 1, 0.32, 1) infinite;
+  animation: rotateWords 10.8s steps(18) infinite;
 }
 
 .rotating-words-inner span {
@@ -765,11 +765,7 @@ footer {
 }
 
 @keyframes rotateWords {
-  0%, 16% { transform: translateY(0); }
-  20%, 36% { transform: translateY(-20%); }
-  40%, 56% { transform: translateY(-40%); }
-  60%, 76% { transform: translateY(-60%); }
-  80%, 96% { transform: translateY(-80%); }
+  to { transform: translateY(-100%); }
 }
 
 @keyframes tickerScroll {
