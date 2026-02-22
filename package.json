@@ -3,7 +3,7 @@
   "private": true,
   "scripts": {
     "dev": "wrangler dev",
-    "deploy": "wrangler deploy",
+    "deploy": "echo 'Use CI — push to main to deploy. See AGENTS.md § Deployment.' && exit 1",
     "db:init": "wrangler d1 execute landing-db --file=schema.sql",
     "db:init:local": "wrangler d1 execute landing-db --local --file=schema.sql",
     "db:query": "wrangler d1 execute landing-db --command"

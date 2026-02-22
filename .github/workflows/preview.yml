@@ -21,6 +21,7 @@ jobs:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
           environment: preview
+          command: deploy --env preview --name landing-preview-${{ github.event.number }}
 
       - name: Comment preview URL
         uses: actions/github-script@v7
@@ -63,4 +64,4 @@ jobs:
         with:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
-          command: delete --name landing-preview --force
+          command: delete --name landing-preview-${{ github.event.number }} --force

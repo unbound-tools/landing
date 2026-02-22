@@ -42,5 +42,5 @@ Collaborators: **@nbramia** and **@benjamcalvin**. When pushing PRs, tag the oth
 
 ### Deploy Process
 - **Production:** Push/merge to `main` → CI deploys automatically (do not run `npm run deploy` manually)
-- **Preview:** Open a PR → CI deploys preview at `https://landing-preview.nbramia.workers.dev`
+- **Preview:** Open a PR → CI deploys preview at `https://landing-preview-{PR_NUMBER}.nbramia.workers.dev`
 - **Workflows:** `.github/workflows/deploy.yml` (prod), `.github/workflows/preview.yml` (preview)

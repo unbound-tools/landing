@@ -56,14 +56,14 @@ Production deploys are automated via GitHub Actions — **do not run `npm run de
 | **Local dev** | `npm run dev` | Manual, localhost:8787 |
 
 **PR preview workflow:**
-1. Open a PR → preview auto-deploys to `https://landing-preview.nbramia.workers.dev`
+1. Open a PR → preview auto-deploys to `https://landing-preview-{PR_NUMBER}.nbramia.workers.dev`
 2. A bot comment appears on the PR with the preview URL
 3. Push more commits → preview re-deploys, comment updates
 4. Close/merge the PR → preview worker is deleted automatically
 
 **Preview environment details:**
+- Each PR gets its own isolated preview worker (`landing-preview-{PR_NUMBER}`)
 - Uses a separate D1 database (`landing-db-preview`) — preview data never touches production
-- Only one preview exists at a time — if multiple PRs are open, the latest push wins
 - Preview inherits the same Worker code and static assets as production
 
 ### Querying Analytics
