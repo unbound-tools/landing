@@ -51,9 +51,7 @@ Visit `http://localhost:8787`.
 
 ### Deploy
 
-```bash
-npm run deploy
-```
+Production deploys happen automatically via CI when changes are merged to `main`. Do not deploy manually.
 
 ## Querying data
 
@@ -69,6 +67,14 @@ npx wrangler d1 execute landing-db --remote --file=queries/survey-distributions.
 # Scroll depth + time on page
 npx wrangler d1 execute landing-db --remote --file=queries/scroll-depth.sql
 ```
+
+## Documentation
+
+| File | Audience | Covers |
+|------|----------|--------|
+| `AGENTS.md` | All contributors | Architecture, lifecycle, boundaries, experiment design, analytics, schema |
+| `CLAUDE.md` | AI agents | Behavioral rules, merge policy, common mistakes, quick reference |
+| `.claude/pr-standards.md` | All contributors | Branch naming, PR format, review, merge criteria |
 
 ## Structure
 

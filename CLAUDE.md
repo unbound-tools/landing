@@ -7,6 +7,14 @@
 - Use plan mode for non-trivial changes (new sections, structural changes, Worker logic). Quick copy edits and small CSS tweaks don't need it.
 - When editing HTML variants, check if the change should apply to both `start.html` and `build.html` or just one. Ask if unclear.
 - After visual changes, offer to verify rendering with browser tools if available.
+- After creating a PR, share the preview URL and ask the user to verify before merging.
+- Never interpret "fix these issues" or "address this feedback" as permission to merge.
+
+## Merge Policy
+
+- **Never merge a PR without explicit human approval.** When the user reports issues or asks for fixes, that is not merge approval. Merge only when the user explicitly says to merge.
+- For PRs touching frontend files (`pages/`), verify the preview URL at mobile and desktop widths before requesting merge approval.
+- After merging, confirm the production deploy succeeded via CI status.
 
 ## Common Mistakes
 
@@ -18,6 +26,7 @@
 6. **Changing the D1 schema without a migration plan** → Schema changes affect the production database. Always ask before altering tables.
 7. **Forgetting `--remote` when querying production D1** → Without `--remote`, `wrangler d1 execute` hits the local database. Always include it for production queries.
 8. **Running `npm run deploy` manually** → Production deploys go through CI on merge to `main`. Manual deploys bypass the PR review process. Use `npm run dev` for local testing.
+9. **Merging without human approval** → Creating a PR, fixing issues, and merging are separate steps. The user must explicitly approve the merge. Reporting issues or requesting fixes is not merge approval.
 
 ## Team
 
@@ -30,7 +39,7 @@ Collaborators: **@nbramia** and **@benjamcalvin**. When pushing PRs, tag the oth
 - Understanding variants → `pages/_variants/start.html` and `pages/_variants/build.html`
 - Understanding routing → `src/router.ts`
 - Understanding analytics → `pages/assets/analytics.js` and `src/api/event.ts`
-- Understanding deploys → AGENTS.md § "Deployment"
+- Understanding lifecycle → AGENTS.md § "Development Lifecycle"
 - Experiment design & hypotheses → AGENTS.md § "A/B Experiment Design"
 - Visitor tracking & event flow → AGENTS.md § "Visitor Tracking & Analytics"
 - Database columns & types → AGENTS.md § "Database Schema"

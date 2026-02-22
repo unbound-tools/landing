@@ -118,6 +118,37 @@ Use draft PRs for:
 
 Convert to ready-for-review when the PR meets all standards above.
 
+## Review
+
+Review depth scales with PR scope:
+
+| PR Type | Minimum Review |
+|---------|---------------|
+| Copy-only edits (no structural changes) | `/pr-check` passing |
+| CSS/JS changes, new sections, structural HTML | `/pr-check` + `/review-pr` + preview verification |
+| Worker logic, API changes, schema changes | `/pr-check` + `/review-pr` + local testing |
+| CI/CD or infrastructure changes | `/pr-check` + `/review-pr` + human review before merge |
+
+For all PRs: tag @nbramia or @benjamcalvin for human review per the Team section in CLAUDE.md.
+
+## Merge Criteria
+
+A PR is ready to merge when:
+
+1. `/pr-check` passes (no errors; warnings acceptable if justified)
+2. `/review-pr` issues are addressed (for non-trivial PRs)
+3. Preview URL verified at mobile + desktop widths (for PRs touching `pages/`)
+4. **A human has explicitly approved the merge**
+
+Never merge without item 4, regardless of how clean the PR is.
+
+## Merge Process
+
+1. Confirm all merge criteria are met
+2. Merge with `gh pr merge --merge --delete-branch`
+3. Monitor the production deploy in GitHub Actions
+4. Verify the live site after deploy succeeds
+
 ---
 
 ## Related
@@ -126,3 +157,7 @@ Convert to ready-for-review when the PR meets all standards above.
 - `/pr-check [number]` — Validates a PR against these standards
 - `/review-pr <number>` — Full adversarial review using specialist agents
 - `/address-review <number>` — Address review feedback and re-request review
+
+### Cross-references
+- Development lifecycle → AGENTS.md § "Development Lifecycle"
+- Merge policy → CLAUDE.md § "Merge Policy"
