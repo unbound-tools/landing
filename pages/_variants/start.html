@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>unbound — The personal data layer for developers</title>
+  <title>Unbound — The personal data layer for developers</title>
   <meta name="description" content="One API for messages, emails, calendar, and contacts across every platform. Built for AI that needs to know who your user talked to and what was said.">
   <link rel="stylesheet" href="/assets/style.css">
 </head>
@@ -24,8 +24,8 @@
   <section class="hero">
     <div class="hero-bg" style="display:none"></div>
     <div class="hero-content">
-      <h1>Your users want your product to <em>know</em> them. But their data is all over the place.</h1>
-      <p class="subheadline">Users are fine sharing data access when they see clear benefits. It's just been too much of a pain in the ass (for you, and for them) to close the loop. No more.</p>
+      <h1>Users don't want to re-teach every new app who they are.</h1>
+      <p class="subheadline">But at the same time –their data is all over the place.  No more.</p>
       <div class="rotating-line">
         <span>One API call for</span>
         <span class="rotating-words"><span class="rotating-words-inner">
@@ -64,13 +64,13 @@
         <button class="code-tab" data-lang="curl">cURL</button>
       </div>
       <div class="code-block">
-<pre class="code-panel active" data-lang="js"><span class="kw">const</span> <span class="cn">timeline</span> = <span class="kw">await</span> unbound.<span class="fn">conversations</span>({
+<pre class="code-panel active" data-lang="js"><span class="kw">const</span> <span class="cn">timeline</span> = <span class="kw">await</span> Unbound.<span class="fn">conversations</span>({
   person: <span class="str">"sarah-chen"</span>, after: <span class="str">"7d"</span>,
   sources: [<span class="str">"imessage"</span>, <span class="str">"slack"</span>, <span class="str">"gmail"</span>]
 });
 <span class="cm">// &rarr; 3 Slack threads, 2 email chains, 14 iMessages</span>
 <span class="cm">// &rarr; One person. Every platform. One API call.</span></pre>
-<pre class="code-panel" data-lang="py"><span class="cn">timeline</span> = <span class="kw">await</span> unbound.<span class="fn">conversations</span>(
+<pre class="code-panel" data-lang="py"><span class="cn">timeline</span> = <span class="kw">await</span> Unbound.<span class="fn">conversations</span>(
     person=<span class="str">"sarah-chen"</span>, after=<span class="str">"7d"</span>,
     sources=[<span class="str">"imessage"</span>, <span class="str">"slack"</span>, <span class="str">"gmail"</span>]
 )
@@ -97,8 +97,8 @@
         <p>Speed is a design constraint, not an optimization target. Sub-second queries across millions of records.</p>
       </div>
       <div class="trust-item">
-        <span class="trust-label">Cross-Platform Identity</span>
-        <p>Sarah on Slack is Sarah in Gmail. We resolve identities across every platform so your agent always knows who it's talking about.</p>
+        <span class="trust-label">Dead simple to implement</span>
+        <p>Get data flowing in minutes, not weeks. AI coding agents love us.</p>
       </div>
       <div class="trust-item">
         <span class="trust-label">Encryption & Privacy</span>
@@ -113,17 +113,17 @@
     <h2 class="fade-in">How it works</h2>
     <div class="cards stagger">
       <div class="card fade-in">
-        <span class="card-label">Step 01</span>
+        <span class="card-label">Step 1</span>
         <h3>Sources integrated</h3>
         <p>"Sarah" from that Google Doc, "sarah@" on that email thread, Sarah Doe in their contacts, 123-456-7890 from WhatsApp, @sdoe on Slack – they're all the same person.</p>
       </div>
       <div class="card fade-in">
-        <span class="card-label">Step 02</span>
+        <span class="card-label">Step 2</span>
         <h3>Context normalized</h3>
         <p>Cross-platform data, unified schema. One data model spanning Windows and Mac, calendars and messaging, documents and email.</p>
       </div>
       <div class="card fade-in">
-        <span class="card-label">Step 03</span>
+        <span class="card-label">Step 3</span>
         <h3>Simple onboarding</h3>
         <p>A few clicks for your users. An API that your coding agents will immediately grok. And you can get back to building the features they're begging for.</p>
       </div>
