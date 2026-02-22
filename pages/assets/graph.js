@@ -282,7 +282,7 @@
     ctx.fillStyle = '#EDEDF0';
     ctx.textAlign = 'center';
     ctx.textBaseline = 'top';
-    ctx.fillText('unbound', x0, y0 + 26);
+    ctx.fillText('Unbound', x0, y0 + 26);
   }
 
   function tick() {
